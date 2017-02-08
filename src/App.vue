@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <Header-items></Header-items>
-    <router-view></router-view>
+    <div class="content">
+      <Header-items></Header-items>
+      <router-view></router-view>
+    </div>
     <FooterElm></FooterElm>
   </div>
 </template>
@@ -18,5 +20,19 @@ export default {
 }
 </script>
 
-<style>
+<style type="text/scss">
+  html, body, #app {
+    height: 100%;
+  }
+  .content {
+    min-height: 100%;
+    height: auto;
+  }
+  .content:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 41px;
+      clear: both;
+    }
 </style>
