@@ -1,16 +1,22 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 
-Vue.use(Router)
+Vue.use(Router);
 
-import Search from 'components/search'
+import searchComponent from 'components/search';
+import donateComponent from 'components/donate'
 
 export default new Router({
   routes: [
     {
       path: '/',
       name: 'Search',
-      component: Search
+      component: searchComponent
+    },
+    {
+      path: '/donate.html',
+      name: 'donate',
+      component: donateComponent
     }
   ]
 })

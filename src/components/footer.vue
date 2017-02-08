@@ -12,3 +12,10 @@
     name: 'footer',
   }
 </script>
+<style type="text/scss">
+  .weui-footer_fixed-bottom {
+    position: relative;
+    margin-top: -41px;
+    clear: both;
+  }
+</style>

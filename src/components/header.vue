@@ -2,9 +2,7 @@
   <div class="weui-tab">
       <div class="weui-navbar">
           <div v-for="(item, index) in items" class="weui-navbar__item" v-bind:class="{'weui-bar__item_on':selected == index}">
-            <a :href="item.href">
-              {{item.text}}
-            </a>
+            <a :href="item.href">{{item.text}}</a>
           </div>
       </div>
       <div class="weui-tab__panel">
@@ -19,22 +17,27 @@
       return {
         items: [{
           text: '下载课表',
-          href: ''
+          href: '//a.app.qq.com/o/simple.jsp?pkgname=io.dcloud.H5291D2691'
         },
         {
           text: '烟大课表',
-          href: ''
+          href: '/'
         },
         {
           text:'空教室', 
-          href: ''
+          href: '/'
         },
         {
           text: '打赏',
-          href: ''
+          href: '#/donate.html'
         }],
         selected: 1
       }
     }
   }
 </script>
+<style type="text/css">
+  a {
+    color: #000000;
+  }
+</style>
