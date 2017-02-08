@@ -1,0 +1,40 @@
+<template>
+  <div class="weui-tab">
+      <div class="weui-navbar">
+          <div v-for="(item, index) in items" class="weui-navbar__item" v-bind:class="{'weui-bar__item_on':selected == index}">
+            <a :href="item.href">
+              {{item.text}}
+            </a>
+          </div>
+      </div>
+      <div class="weui-tab__panel">
+
+      </div>
+  </div>
+</template>
+<script>
+  export default {
+    name: 'Header',
+    data () {
+      return {
+        items: [{
+          text: '下载课表',
+          href: ''
+        },
+        {
+          text: '烟大课表',
+          href: ''
+        },
+        {
+          text:'空教室', 
+          href: ''
+        },
+        {
+          text: '打赏',
+          href: ''
+        }],
+        selected: 1
+      }
+    }
+  }
+</script>
