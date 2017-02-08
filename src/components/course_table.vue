@@ -18,7 +18,42 @@
   </div>
 </template>
 <script type="text/javascript">
-  
+  import Vue from 'vue';
+  import VueResource from 'vue-resource';
+
+  Vue.use(VueResource);
+
+  export default {
+    created () {
+    // 组件创建完后获取数据，
+    // 此时 data 已经被 observed 了
+    this.fetchData()
+  },
+  methods: {
+    fetchData () {
+      this.$http.get('http://www.fddcn.cn', {
+
+          // use before callback
+          before(request) {
+
+            // abort previous request, if exists
+            if (this.previousRequest) {
+              this.previousRequest.abort();
+            }
+
+            // set previous request on Vue instance
+            this.previousRequest = request;
+          }
+
+        }).then(response => {
+          // success callback
+        }, response => {
+          // error callback
+          
+        }).catch(e => alert(e));
+    }
+  }
+  }
 </script>
 <style type="text/css" scoped>
   .content {
