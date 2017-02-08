@@ -2,11 +2,10 @@
   <div class="weui-tab">
       <div class="weui-navbar">
           <div v-for="(item, index) in items" class="weui-navbar__item" v-bind:class="{'weui-bar__item_on':selected == index}">
-            <a :href="item.href">{{item.text}}</a>
+            <a :href="item.href" @click="go(index)">{{item.text}}</a>
           </div>
       </div>
       <div class="weui-tab__panel">
-
       </div>
   </div>
 </template>
@@ -21,11 +20,11 @@
         },
         {
           text: '烟大课表',
-          href: '/'
+          href: '#/'
         },
         {
           text:'空教室', 
-          href: '/'
+          href: '#/'
         },
         {
           text: '打赏',
@@ -33,10 +32,15 @@
         }],
         selected: 1
       }
+    },
+    methods: {
+      go (index) {
+        this.selected = index;
+      }
     }
   }
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
   a {
     color: #000000;
   }
