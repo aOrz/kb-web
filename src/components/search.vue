@@ -76,24 +76,7 @@
       return {
         school: 'yd',
         academe: '计',
-        className: '',
-        items: [{
-          text: '下载课表',
-          href: ''
-        },
-        {
-          text: '烟大课表',
-          href: ''
-        },
-        {
-          text:'空教室', 
-          href: ''
-        },
-        {
-          text: '打赏',
-          href: ''
-        }],
-        selected: 1
+        className: ''
       }
     },
     methods: {
