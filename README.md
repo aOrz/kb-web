@@ -1,6 +1,6 @@
 # kb-web
 
-> A Vue.js project
+> kb
 
 ## Build Setup
 
