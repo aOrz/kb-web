@@ -7,8 +7,8 @@
             <label class="weui-label">学校: </label>
           </div>
           <div class="weui-cell_bd weui-cell_primary">
-            <select class="weui-select" name="xy">
-              <option value="ytu">烟台大学</option>
+            <select  v-model="school" class="weui-select" name="xy">
+              <option value="yd">烟台大学</option>
               <option value="wj">文经学院</option>
             </select>
           </div>
@@ -18,7 +18,7 @@
             <label class="weui-label">学院: </label>
           </div>
           <div class="weui-cell_bd weui-cell_primary">
-            <select class="weui-select" name="xy">
+            <select v-model="academe" class="weui-select" name="xy">
               <option value="环">环境</option>
               <option value="材">材料</option>
               <option value="计">计控</option>
@@ -53,12 +53,12 @@
               <label class="weui-label">班级: </label>
             </div>
             <div class="weui-cell_bd weui-cell_primary">
-              <input name="bj" class="weui-input" type="text" placeholder="请输入班级如131-2">
+              <input name="bj"  v-model="className" class="weui-input" type="text" placeholder="请输入班级如131-2">
             </div>
           </div>
         </div>
         <div class="weui-cells weui-cells_form">   
-          <input type="submit" value="查询" class="weui-btn weui-btn_primary"> 
+          <input type="button" @click="search" value="查询" class="weui-btn weui-btn_primary"> 
         </div>
       </form>
     </div>
@@ -74,6 +74,9 @@
     name: 'Header',
     data () {
       return {
+        school: 'yd',
+        academe: '计',
+        className: '',
         items: [{
           text: '下载课表',
           href: ''
@@ -91,6 +94,11 @@
           href: ''
         }],
         selected: 1
+      }
+    },
+    methods: {
+      search () {
+        window.location.href = `#/course_table.html/${this.school}/${this.academe}/${this.className}`;
       }
     }
   }
