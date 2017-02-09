@@ -47,6 +47,7 @@
 </style>
 <script>
   import duoshuoComponent from './duoshuo';
+  import weui from 'weui.js';
 
   export default {
     name: 'Header',
@@ -135,7 +136,11 @@
     },
     methods: {
       search () {
-        window.location.href = `#/course_table.html/${this.school}/${this.academe}/${this.className}`;
+        if (this.school && this.academe && this.className) {
+          window.location.href = `#/course_table.html/${this.school}/${this.academe}/${this.className}`;
+        } else {
+          weui.alert('填完再查嘛！')
+        }
       },
       changeAcademe () {
         this.academe = this.school === 'yd' ? '计' : '文会';
