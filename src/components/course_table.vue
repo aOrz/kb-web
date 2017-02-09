@@ -46,6 +46,8 @@
     fetchData () {
       let that = this;
       let params = that.$route.params;
+      let loading = weui.loading('狂奔中~');
+
       that.$http.get(`/controller/course_controller.php?c=GetCourseByClassName&schoolName=${params.school}&collegeName=${params.academe}&classNum=${params.class_name}`, {
           // use before callback
           before(request) {
@@ -62,6 +64,7 @@
         }).then(response => {
           // success callback
           console.log(response);
+          loading.hide();
           if (response.status != 200) {
             weui.alert('网络错误');
           } else {
@@ -74,7 +77,8 @@
           }
         }, response => {
           // error callback
-          
+          loading.hide();
+          weui.alert('出错拉');
         });
     },
     getColor () {
