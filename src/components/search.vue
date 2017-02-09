@@ -7,7 +7,7 @@
             <label class="weui-label">选择学校: </label>
           </div>
           <div class="weui-cell_bd weui-cell_primary">
-            <select  v-model="school" class="weui-select" name="xy">
+            <select  v-model="school" class="weui-select" @change="changeAcademe">
               <option value="yd">烟台大学</option>
               <option value="wj">文经学院</option>
             </select>
@@ -37,6 +37,7 @@
         </div>
       </form>
     </div>
+    <duo-shuo :thread-key="threadKey"></duo-shuo>
   </div>
 </template>
 <style scoped>
@@ -45,6 +46,8 @@
   }
 </style>
 <script>
+  import duoshuoComponent from './duoshuo';
+
   export default {
     name: 'Header',
     data () {
@@ -52,6 +55,7 @@
         school: 'yd',
         academe: '计',
         className: '',
+        threadKey: 'index',
         academeList: {
           yd: `<option value="环">环境</option>
               <option value="材">材料</option>
@@ -132,7 +136,13 @@
     methods: {
       search () {
         window.location.href = `#/course_table.html/${this.school}/${this.academe}/${this.className}`;
+      },
+      changeAcademe () {
+        this.academe = this.school === 'yd' ? '计' : '文会';
       }
+    },
+    components: {
+      duoShuo: duoshuoComponent
     }
   }
 </script>

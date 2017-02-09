@@ -68,11 +68,21 @@
                   </tbody>
               </table>
           </section>
+          <duo-shuo :thread-key="threadKey"></duo-shuo>
       </article>
 </template>
 <script>
+  import duoshuoComponent from './duoshuo';
+
   export default {
-    name: 'donate',
+    data () {
+      return {
+        threadKey: 'juanzeng'
+      }
+    },
+    components: {
+      duoShuo: duoshuoComponent
+    }
   }
 </script>
 <style type="text/scss" scoped>
