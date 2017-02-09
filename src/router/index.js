@@ -20,7 +20,7 @@ export default new Router({
       component: donateComponent
     },
     {
-      path: '/course_table.html/:school/:academe/:class',
+      path: '/course_table.html/:school/:academe/:class_name',
       name: 'course_table',
       component: courseTableComponent
     }
