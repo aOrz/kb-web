@@ -1,17 +1,24 @@
 <template>
   <div class="content">
     <div class="row table-width">
-        <div class="col-xs-16 col-md-16 col-md-8"><table style="font-size:0.5em;table-layout:fixed;" class="table table-responsive table-bordered table-condensed table table-striped">
-          <tbody><tr>
-          <td style="width:14px;">@</td>
-              <td>星期一</td>
-              <td>星期二</td>
-              <td>星期三</td>
-              <td>星期四</td>
-              <td>星期五</td>
-              <td>星期六</td>
-              <td>星期日</td>
-          </tr><tr style="height:50px"> <td style="width:14px;">第<br> 1<br>节<br></td><td class="info"></td><td class="success"></td><td class="warning"></td><td class="warning"></td><td class="info"></td><td class="warning"></td><td class="warning"></td></tr><tr style="height:50px"> <td style="width:14px;">第<br> 2<br>节<br></td><td class="info"></td><td class="active"></td><td class="warning"></td><td class="active"></td><td class="active"></td><td class="active"></td><td class="info"></td></tr><tr style="height:50px"> <td style="width:14px;">第<br> 3<br>节<br></td><td class="active"></td><td class="info"></td><td class="info"></td><td class="danger"></td><td class="success"></td><td class="danger"></td><td class="info"></td></tr><tr style="height:50px"> <td style="width:14px;">第<br> 4<br>节<br></td><td class="warning"></td><td class="success"></td><td class="info"></td><td class="danger"></td><td class="warning"></td><td class="success"></td><td class="info"></td></tr><tr style="height:50px"> <td style="width:14px;">第<br> 5<br>节<br></td><td class="info"></td><td class="active"></td><td class="info"></td><td class="active"></td><td class="active">毕业设计设计实习地1徐金东18周上(9-10节)</td><td class="active">毕业实习设计实习地1范宝德18周上(9-10节)</td><td class="active"></td></tr><tr style="height:50px"> <td style="width:14px;">第<br> 6<br>节<br></td><td class="info"></td><td class="info"></td><td class="warning"></td><td class="warning"></td><td class="info"></td><td class="active"></td><td class="active"></td></tr></tbody>
+        <div class="col-xs-16 col-md-16 col-md-8">
+        <table v-show="course" class="table table-responsive table-bordered table-condensed table-striped">
+            <tbody>
+              <tr>
+                <td style="width:14px;">@</td>
+                <td>星期一</td>
+                <td>星期二</td>
+                <td>星期三</td>
+                <td>星期四</td>
+                <td>星期五</td>
+                <td>星期六</td>
+                <td>星期日</td>
+              </tr>
+              <tr style="height:50px" v-for="i in 6">
+                <td style="width:14px;">第<br> {{i}}<br>节<br></td>
+                <td :class="getColor()" v-for="j in 7">{{course['s'+((i-1)*7+j)]}}</td>
+              </tr>
+            </tbody>
           </table>    
         </div>
       </div>
@@ -24,6 +31,11 @@
   Vue.use(VueResource);
 
   export default {
+    data () {
+      return {
+        course: ''
+      }
+    },
     created () {
     // 组件创建完后获取数据，
     // 此时 data 已经被 observed 了
@@ -31,8 +43,9 @@
   },
   methods: {
     fetchData () {
-      this.$http.get('http://www.fddcn.cn', {
-
+      let that = this;
+      let params = that.$route.params;
+      that.$http.get(`/controller/course_controller.php?c=GetCourseByClassName&schoolName=${params.school}&collegeName=${params.academe}&classNum=${params.class_name}`, {
           // use before callback
           before(request) {
 
@@ -47,10 +60,27 @@
 
         }).then(response => {
           // success callback
+          console.log(response);
+          that.course = typeof response.body === 'object'? response.body[0]: '';
         }, response => {
           // error callback
           
-        }).catch(e => alert(e));
+        });
+    },
+    getColor () {
+      const setColor = [
+        'active',
+        'success',
+        'warning',
+        'danger ',
+        '',
+        'info',
+        'c1',
+        'c2',
+        'c3'
+      ];
+      console.log(Math.round(Math.random()*8+1))
+      return setColor[Math.round(Math.random()*8+1)];
     }
   }
   }
@@ -65,6 +95,7 @@
       line-height: 1.42857143;
       vertical-align: top;
       border-top: 1px solid #ddd;
+      overflow: scroll;
   }
   .table-width {
       width: 150%;
@@ -86,6 +117,8 @@
       width: 100%;
       max-width: 100%;
       margin-bottom: 20px;
+      font-size:0.5em;
+      table-layout:fixed;
   }
   .table-responsive {
       min-height: .01%;
@@ -114,5 +147,14 @@
 
   .danger {
       background-color: #f2dede;
+  }
+  .c1 {
+    background-color: #b6e6da;
+  }
+  .c2 {
+    background-color: #84d4bf;
+  }
+  .c3 {
+    background-color: #a6dbb3;
   }
 </style>

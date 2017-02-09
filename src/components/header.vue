@@ -19,7 +19,7 @@
           href: '//a.app.qq.com/o/simple.jsp?pkgname=io.dcloud.H5291D2691'
         },
         {
-          text: '烟大课表',
+          text: '课程表',
           href: '#/'
         },
         {
