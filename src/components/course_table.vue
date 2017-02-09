@@ -79,7 +79,6 @@
         'c2',
         'c3'
       ];
-      console.log(Math.round(Math.random()*8+1))
       return setColor[Math.round(Math.random()*8+1)];
     }
   }
