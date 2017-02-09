@@ -24,9 +24,10 @@
       </div>
   </div>
 </template>
-<script type="text/javascript">
+<script lang="babel">
   import Vue from 'vue';
   import VueResource from 'vue-resource';
+  import weui from 'weui.js';
 
   Vue.use(VueResource);
 
@@ -61,7 +62,16 @@
         }).then(response => {
           // success callback
           console.log(response);
-          that.course = typeof response.body === 'object'? response.body[0]: '';
+          if (response.status != 200) {
+            weui.alert('网络错误');
+          } else {
+            if (typeof response.body === 'object') {
+              that.course = response.body[0];
+            } else {
+              weui.alert('找不到班级');
+              window.location.href = '/#/'
+            }
+          }
         }, response => {
           // error callback
           
