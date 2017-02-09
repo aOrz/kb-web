@@ -4,31 +4,21 @@
       <form action="" id="form" class="form-signin" role="form" style="height:100%;padding-bottom:50px">
         <div class="weui-cell weui-cell_select weui-select_after">
           <div class="weui-cell">
-            <label class="weui-label">选择学校: </label>
+            <label class="weui-label">专业: </label>
           </div>
-          <div class="weui-cell_bd weui-cell_primary">
-            <select  v-model="school" class="weui-select" @change="changeAcademe">
-              <option value="yd">烟台大学</option>
-              <option value="wj">文经学院</option>
-            </select>
-          </div>
-        </div>
-        <div class="weui-cell weui-cell_select weui-select_after">
-          <div class="weui-cell">
-            <label class="weui-label">专业简称: </label>
-          </div>
-          <div class="weui-cell_bd weui-cell_primary">
-            <select v-model="academe" class="weui-select" v-html="academeList[school]">
-            </select>
+          <div class="weui-cell_bd weui-cell_primary info">
+            <input @click="showPicker" v-model="schoolInfo" class="weui-input" type="text" placeholder="请选择学校专业">
           </div>
         </div>
         <div class="weui-cells weui-cells_form" style="margin-top:0;">
           <div class="weui-cell">
             <div class="weui-cell_hd">
-              <label class="weui-label">我的班级: </label>
+              <label class="weui-label">班级: </label>
             </div>
             <div class="weui-cell_bd weui-cell_primary">
-              <input name="bj"  v-model="className" class="weui-input" type="text" placeholder="请输入班级如131-2">
+              <select v-model="className" class="weui-select">
+                  <option v-for="i in classs" :value="i">{{i}}</option>
+              </select>
             </div>
           </div>
         </div>
@@ -44,11 +34,61 @@
   .padding-lr {
     padding: 0 15px;
   }
+  .weui-label {
+    width: 70px;
+  }
+  .weui-cell_bd+.weui-cell_primary {
+    flex: 2;
+  }
+  .weui-select {
+    height: 24px;
+    line-height: 24px;
+  }
 </style>
 <script>
   import duoshuoComponent from './duoshuo';
   import weui from 'weui.js';
+  import Vue from 'vue';
+  import VueResource from 'vue-resource';
 
+  Vue.use(VueResource);
+
+  let date = new Date();
+  let year = date.getFullYear();
+  let grade = [];
+  for(let i = 0; i < 5; i++){
+    grade.push({
+      value: year % 2000,
+      label: year + '级'
+    });
+    year--;
+  }
+  let arr = [{
+    label: '烟台大学',
+    value: 'yd',
+    children: []
+  },{
+    label: '文经学院',
+    value: 'wj',
+    children: []
+  }];
+  let yd = ['环','法','计','光','海','建','经','生','食','数','土','外','新','机','药','音','应','中','化','材','体','EIE','对外','专国','汉教'];
+  let wj = ['文专中','文专会','文专商','文专土','文专市','文专房','文专机','文专电','文专英','文专计','文专财','文专贸','文专通','文中','文会','文公','文商','文土','文市','文投','文新','文日','文朝','文机','文法','文环','文生','文电','文自','文艺','文英','文视','文计','文财','文贸','文车','文通','文金','文食']
+  for (let i = 0; i < yd.length; i++) {
+    arr[0].children.push({
+      label: yd[i],
+      value: yd[i],
+      children: grade
+    });
+  }
+  for (let i = wj.length - 1; i >= 0; i--) {
+    arr[1].children.push({
+      label: wj[i],
+      value: wj[i],
+      children: grade
+    });
+  }
+  
   export default {
     name: 'Header',
     data () {
@@ -56,95 +96,84 @@
         school: 'yd',
         academe: '计',
         className: '',
+        grade: '',
         threadKey: 'index',
-        academeList: {
-          yd: `<option value="环">环境</option>
-              <option value="材">材料</option>
-              <option value="计">计控</option>
-              <option value="法">法学</option>
-              <option value="机">机电</option>
-              <option value="光">光电</option>
-              <option value="海">海院</option>
-              <option value="生">生物</option>
-              <option value="食">食品</option>
-              <option value="数">数院</option>
-              <option value="土">土木</option>
-              <option value="建">建筑</option>
-              <option value="经">经管</option>
-              <option value="外">外院</option>
-              <option value="化">化学</option>
-              <option value="应">应化</option>
-              <option value="中">中文</option>
-              <option value="新">新闻</option>
-              <option value="药">药院</option>
-              <option value="音">音乐</option>
-              <option value="体">体育</option>
-              <option value="对外">对外</option>
-              <option value="专国">专国</option>
-              <option value="汉教">汉教</option>
-              <option value="EIE">EIE</option>`,
-          wj: `<option value="文专中">文专中</option>
-              <option value="文中">文中</option>
-              <option value="中">中</option>
-              <option value="文专会">文专会</option>
-              <option value="文会">文会</option>
-              <option value="会">会</option>
-              <option value="文专商">文专商</option>
-              <option value="文商">文商</option>
-              <option value="文专土">文专土</option>
-              <option value="文土">文土</option>
-              <option value="文专市">文专市</option>
-              <option value="文市">文市</option>
-              <option value="文专房">文专房</option>
-              <option value="文专机">文专机</option>
-              <option value="文机">文机</option>
-              <option value="机">机</option>
-              <option value="文专电">文专电</option>
-              <option value="文电">文电</option>
-              <option value="文专英">文专英</option>
-              <option value="文英">文英</option>
-              <option value="文专计">文专计</option>
-              <option value="文计">文计</option>
-              <option value="文专财">文专财</option>
-              <option value="文财">文财</option>
-              <option value="文专贸">文专贸</option>
-              <option value="文贸">文贸</option>
-              <option value="文专通">文专通</option>
-              <option value="文通">文通</option>
-              <option value="文公">文公</option>
-              <option value="文投">文投</option>
-              <option value="文新">文新</option>
-              <option value="文日">文日</option>
-              <option value="文朝">文朝</option>
-              <option value="文法">文法</option>
-              <option value="文环">文环</option>
-              <option value="文生">文生</option>
-              <option value="文自">文自</option>
-              <option value="文艺">文艺</option>
-              <option value="文视">文视</option>
-              <option value="文车">文车</option>
-              <option value="文金">文金</option>
-              <option value="文食">文食</option>
-              <option value="食">食</option>
-              <option value="信">信</option>
-              <option value="外">外</option>
-              <option value="建">建</option>
-              <option value="管">管</option>
-              <option value="经">经</option>`
-        }
+        schoolInfo: '',
+        classs: []
+      }
+    },
+    computed: {
+      classNum () {
+        return this.className.match(/\d.*/)
       }
     },
     methods: {
       search () {
         if (this.school && this.academe && this.className) {
-          window.location.href = `#/course_table.html/${this.school}/${this.academe}/${this.className}`;
+          window.location.href = `#/course_table.html/${this.school}/${this.academe}/${this.classNum}`;
         } else {
-          weui.alert('填完再查嘛！')
+          weui.topTips('填完再查嘛！');
         }
       },
       changeAcademe () {
         this.academe = this.school === 'yd' ? '计' : '文会';
+      },
+      showPicker () {
+        let that = this;
+        weui.picker(arr, {
+           defaultValue: [1, 3, 2012],
+           depth: 3,
+           onConfirm: function (result) {
+               that.school = result[0].value;
+               that.academe = result[1].value;
+               that.grade = result[2].value;
+               that.schoolInfo = result[0].label + ',' + result[1].label + ',' + result[2].label;
+               that.getClass();
+           },
+           id: 'd'
+        });
+      },
+      getClass () {
+        let that = this;
+        let loading = weui.loading('狂奔中~');
+
+        that.$http.get(`/controller/course_controller.php?c=Getclass&schoolName=${that.school}&school_info=${that.academe}${that.grade}`, {
+            // use before callback
+            before(request) {
+
+              // abort previous request, if exists
+              if (this.previousRequest) {
+                this.previousRequest.abort();
+              }
+
+              // set previous request on Vue instance
+              this.previousRequest = request;
+            }
+
+          }).then(response => {
+            // success callback
+            console.log(response);
+            loading.hide();
+            if (response.status != 200) {
+              weui.alert('网络错误');
+            } else {
+              if (typeof response.body === 'object') {
+                that.classs = response.body;
+                that.className = that.classs[0];
+              } else {
+                weui.alert('找不到班级');
+                window.location.href = '/#/'
+              }
+            }
+          }, response => {
+            // error callback
+            loading.hide();
+            weui.alert('出错拉');
+          });
       }
+    },
+    created () {
+      this.showPicker();
     },
     components: {
       duoShuo: duoshuoComponent
