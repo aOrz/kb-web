@@ -21,10 +21,10 @@
           text: '课程表',
           href: '#/'
         },
-        {
-          text:'空教室', 
-          href: '#/'
-        },
+        // {
+        //   text:'空教室', 
+        //   href: '#/'
+        // },
         {
           text: '打赏',
           href: '#/donate.html'

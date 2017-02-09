@@ -93,8 +93,8 @@
     name: 'Header',
     data () {
       return {
-        school: 'yd',
-        academe: '计',
+        school: '',
+        academe: '',
         className: '',
         grade: '',
         threadKey: 'index',
@@ -121,7 +121,7 @@
       showPicker () {
         let that = this;
         weui.picker(arr, {
-           defaultValue: [1, 3, 2012],
+           defaultValue: ['yd'],
            depth: 3,
            onConfirm: function (result) {
                that.school = result[0].value;
