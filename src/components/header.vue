@@ -27,12 +27,12 @@
         //   href: '#/'
         // },
         {
-          text: '打赏',
-          href: '#/donate.html'
+          text: '校历',
+          href: '#/calendar'
         },
         {
-          text: '烟大校历',
-          href: '#/calendar'
+          text: '打赏',
+          href: '#/donate.html'
         }],
         selected: 1
       }
