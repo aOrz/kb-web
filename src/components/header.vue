@@ -18,7 +18,7 @@
           href: '//a.app.qq.com/o/simple.jsp?pkgname=io.dcloud.H5291D2691'
         },
         {
-          text: '课程表',
+          text: this.$route.params.title ? this.$route.params.title : '课程表',
           href: '#/'
         },
         // {
