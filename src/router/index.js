@@ -6,6 +6,7 @@ Vue.use(Router);
 import searchComponent from 'components/search';
 import donateComponent from 'components/donate';
 import courseTableComponent from 'components/course_table';
+import calendarComponent from 'components/calendar';
 
 export default new Router({
   routes: [
@@ -28,6 +29,11 @@ export default new Router({
       path: '/course_table.html/:school/:academe/:class_name',
       name: 'course_table',
       component: courseTableComponent
+    },
+    {
+      path: '/calendar',
+      name: 'calendar',
+      component: calendarComponent
     }
   ]
 })

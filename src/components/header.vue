@@ -5,8 +5,8 @@
             <a :href="item.href" @click="go(index)">{{item.text}}</a>
           </div>
       </div>
-      <div class="weui-tab__panel">
-      </div>
+      <!-- <div class="weui-tab__panel">
+      </div> -->
   </div>
 </template>
 <script>
@@ -29,6 +29,10 @@
         {
           text: '打赏',
           href: '#/donate.html'
+        },
+        {
+          text: '烟大校历',
+          href: '#/calendar'
         }],
         selected: 1
       }

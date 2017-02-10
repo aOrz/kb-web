@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="content">
-      <Header-items></Header-items>
+      <header>
+        <Header-items></Header-items>
+      </header>
       <router-view></router-view>
     </div>
     <FooterElm></FooterElm>
@@ -21,10 +23,19 @@ export default {
 </script>
 
 <style type="text/scss">
+  header {
+    position: fixed;
+    top: 0;
+    height: 50px;
+    z-index: 100;
+    width: 100%;
+  }
   html, body, #app {
     height: 100%;
   }
   .content {
+    padding-top: 25px;
+    box-sizing: border-box;
     min-height: 100%;
     height: auto;
   }
@@ -32,7 +43,7 @@ export default {
       content: '';
       display: block;
       width: 100%;
-      height: 41px;
+      height: 50px;
       clear: both;
     }
 </style>
