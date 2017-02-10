@@ -12,14 +12,15 @@
 <script>
   export default {
     data () {
+      let params = this.$route.params;
       return {
         items: [{
           text: '下载课表',
           href: '//a.app.qq.com/o/simple.jsp?pkgname=io.dcloud.H5291D2691'
         },
         {
-          text: this.$route.params.title ? this.$route.params.title : '课程表',
-          href: '#/'
+          text: params.title ? params.title : '课程表',
+          href: this.$route.name == 'Search' ? params.fullPath : '#/' 
         },
         // {
         //   text:'空教室', 
