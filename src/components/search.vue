@@ -120,8 +120,18 @@
       },
       showPicker () {
         let that = this;
+        let params = that.$route.params;
+        let defaultValue = [];
+        if (params.school) {
+          defaultValue.push(params.school)
+        } else {
+          defaultValue.push('yd');
+        }
+        if (params.academe) {
+          defaultValue.push(params.academe)
+        }
         weui.picker(arr, {
-           defaultValue: ['yd'],
+           defaultValue: defaultValue,
            depth: 3,
            onConfirm: function (result) {
                that.school = result[0].value;

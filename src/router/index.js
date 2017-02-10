@@ -10,8 +10,13 @@ import courseTableComponent from 'components/course_table';
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/:title/:school/:academe',
       name: 'Search',
+      component: searchComponent
+    },
+    {
+      path: '/',
+      name: 'Searchs',
       component: searchComponent
     },
     {
