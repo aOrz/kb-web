@@ -156,13 +156,10 @@
                 this.previousRequest.abort();
               }
 
-              // set previous request on Vue instance
               this.previousRequest = request;
             }
 
           }).then(response => {
-            // success callback
-            console.log(response);
             loading.hide();
             if (response.status != 200) {
               weui.alert('网络错误');
@@ -176,7 +173,6 @@
               }
             }
           }, response => {
-            // error callback
             loading.hide();
             weui.alert('出错拉');
           });
