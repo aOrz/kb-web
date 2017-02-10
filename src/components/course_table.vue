@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div class="row table-width">
+    <div class="table-width">
         <table v-show="course" class="table table-responsive table-bordered table-condensed table-striped">
             <tbody>
               <tr>
@@ -60,7 +60,6 @@
           }
 
         }).then(response => {
-          // success callback
           loading.hide();
           if (response.status != 200) {
             weui.alert('网络错误');
@@ -73,7 +72,6 @@
             }
           }
         }, response => {
-          // error callback
           loading.hide();
           weui.alert('出错拉');
         });
@@ -110,6 +108,7 @@
   .table-width {
       width: 150%;
       max-width: 800px;
+      margin: 0 auto;
   }
   .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
       border: 1px solid #ddd;
