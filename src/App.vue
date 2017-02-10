@@ -38,6 +38,7 @@ export default {
     box-sizing: border-box;
     min-height: 100%;
     height: auto;
+    margin: 0 auto;
   }
   .content:after {
       content: '';

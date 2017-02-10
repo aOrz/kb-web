@@ -2,8 +2,8 @@
   <div class="content">
     <div class="table-width">
         <table v-show="course" class="table table-responsive table-bordered table-condensed table-striped">
-            <tbody>
-              <tr>
+          <thead>
+            <tr>
                 <td style="width:14px;">@</td>
                 <td>星期一</td>
                 <td>星期二</td>
@@ -13,6 +13,8 @@
                 <td>星期六</td>
                 <td>星期日</td>
               </tr>
+          </thead>
+            <tbody>
               <tr style="height:50px" v-for="i in 6">
                 <td style="width:14px;">第<br> {{i}}<br>节<br></td>
                 <td :class="getColor()" v-for="j in 7">{{course['s'+((i-1)*7+j)]}}</td>
