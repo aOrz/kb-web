@@ -4,8 +4,8 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../minikb/2/../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../minikb/2/../dist'),
+    index: path.resolve(__dirname, '../../minikb/2/dist/index.html'),
+    assetsRoot: path.resolve(__dirname, '../../minikb/2/dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/dist/',
     productionSourceMap: true,
