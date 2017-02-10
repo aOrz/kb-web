@@ -20,7 +20,7 @@
         },
         {
           text: params.title ? params.title : '课程表',
-          href: this.$route.name == 'Search' ? params.fullPath : '#/' 
+          href: this.$route.name == 'Search' ? '#' + this.$route.fullPath : '#/' 
         },
         // {
         //   text:'空教室', 
