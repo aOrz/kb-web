@@ -7,7 +7,7 @@
             <label class="weui-label">专业: </label>
           </div>
           <div class="weui-cell_bd weui-cell_primary info">
-            <input @click="showPicker" v-model="schoolInfo" class="weui-input" type="text" placeholder="请选择学校专业">
+            <span @click="showPicker" class="weui-input">{{schoolInfo}}</span>
           </div>
         </div>
         <div class="weui-cells weui-cells_form" style="margin-top:0;">
@@ -23,11 +23,13 @@
           </div>
         </div>
         <div class="weui-cells weui-cells_form">   
-          <input type="button" @click="search" value="查询" class="weui-btn weui-btn_primary"> 
+          <input type="button" @click="search" value="查询课表" class="weui-btn weui-btn_primary"> 
         </div>
       </form>
     </div>
-    <duo-shuo :thread-key="threadKey"></duo-shuo>
+    <!-- <duo-shuo :thread-key="threadKey"></duo-shuo> -->
+    <recommended v-for="links in schoolLinks" :links="links"></recommended>
+    <recommended v-for="links in publicLinks" :links="links"></recommended>
   </div>
 </template>
 <style scoped>
@@ -47,64 +49,35 @@
 </style>
 <script>
   import duoshuoComponent from './duoshuo';
+  import recommendedComponent from './recommended'
+  import config from '../lib/config'
+
   import weui from 'weui.js';
   import Vue from 'vue';
   import VueResource from 'vue-resource';
 
   Vue.use(VueResource);
-
-  let date = new Date();
-  let year = date.getFullYear();
-  let grade = [];
-  for(let i = 0; i < 5; i++){
-    grade.push({
-      value: year % 2000,
-      label: year + '级'
-    });
-    year--;
-  }
-  let arr = [{
-    label: '烟台大学',
-    value: 'yd',
-    children: []
-  },{
-    label: '文经学院',
-    value: 'wj',
-    children: []
-  }];
-  let yd = ['环','法','计','光','海','建','经','生','食','数','土','外','新','机','药','音','应','中','化','材','体','EIE','对外','专国','汉教'];
-  let wj = ['文专中','文专会','文专商','文专土','文专市','文专房','文专机','文专电','文专英','文专计','文专财','文专贸','文专通','文中','文会','文公','文商','文土','文市','文投','文新','文日','文朝','文机','文法','文环','文生','文电','文自','文艺','文英','文视','文计','文财','文贸','文车','文通','文金','文食']
-  for (let i = 0; i < yd.length; i++) {
-    arr[0].children.push({
-      label: yd[i],
-      value: yd[i],
-      children: grade
-    });
-  }
-  for (let i = wj.length - 1; i >= 0; i--) {
-    arr[1].children.push({
-      label: wj[i],
-      value: wj[i],
-      children: grade
-    });
-  }
   
   export default {
     name: 'Header',
     data () {
       return {
-        school: '',
+        school: this.$route.params.school ? this.$route.params.school : 'yd',
         academe: '',
         className: '',
         grade: '',
         threadKey: 'index',
-        schoolInfo: '',
-        classs: []
+        schoolInfo: '请选择学校专业',
+        classs: [],
+        publicLinks: config.links.public_links
       }
     },
     computed: {
       classNum () {
         return this.className.match(/\d.*/)
+      },
+      schoolLinks () {
+        return config.links[this.school];
       }
     },
     methods: {
@@ -130,7 +103,7 @@
         if (params.academe) {
           defaultValue.push(params.academe)
         }
-        weui.picker(arr, {
+        weui.picker(config.gradeList, {
            defaultValue: defaultValue,
            depth: 3,
            onConfirm: function (result) {
@@ -179,10 +152,11 @@
       }
     },
     created () {
-      this.showPicker();
+      // this.showPicker();
     },
     components: {
-      duoShuo: duoshuoComponent
+      duoShuo: duoshuoComponent,
+      recommended: recommendedComponent
     }
   }
 </script>
