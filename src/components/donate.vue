@@ -17,9 +17,9 @@
                   <p class="img">
                       <img src="../assets/ali.png">
                   </p>
-                  <h4>其他方式</h4>
+                  <h4>意见建议</h4>
                   <p>
-                      如果您想通过其他方式支持迷你课表的发展，可加我为微信好友(kuqideyanlei666)。
+                      如果您有什么好的意见和建议，欢迎联系我们。
                   </p>
                   <p class="img">
                       <img src="../assets/weixin.png">
