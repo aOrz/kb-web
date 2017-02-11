@@ -192,463 +192,555 @@ module.exports = {
     },
 
     links: {
-    "yd": [
+        "yd": [
+            {
+                "category": "烟大生活",
+                "links": [
+                    {
+                        "name": "烟大贴吧",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://tieba.baidu.com/f?kw=%D1%CC%CC%A8%B4%F3%D1%A7"
+                    },
+                    {
+                        "name": "图书馆",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.lib.ytu.edu.cn:9999/opac/reader_info.aspx"
+                    },
+                    {
+                        "name": "表白墙",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.handschool.cn/addon/BiaoBai/BiaoBaiView/show/hmp/0f4339c19535d77981f16aa6d3a8cf69.html?from=singlemessage"
+                    },
+                    {
+                        "name": "烟大集市",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://wx.quanzijishi.com/circle/ni61rl90ayb"
+                    },
+                    {
+                        "name": "全景烟大",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "https://720yun.com/t/af927ci6qyr?from=timeline&isappinstalled=0&openSpeakModal=true&pano_id=1240382"
+                    }
+                ]
+            },
+            {
+                "category": "烟大校园",
+                "links": [
+                    {
+                        "name": "烟大官网",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.ytu.edu.cn/"
+                    },
+                    {
+                        "name": "烟大导航",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.ytu.edu.cn/wzdt/index.jhtml"
+                    },
+                    {
+                        "name": "选课系统",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://jwc.ytu.edu.cn/xk/xuankefuwu.htm"
+                    },
+                    {
+                        "name": "网上民生",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.ytu.edu.cn/wsms/index.jhtml"
+                    },
+                    {
+                        "name": "烟大新闻",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://xcb.ytu.edu.cn/"
+                    },
+                    {
+                        "name": "学院导航",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.ytu.edu.cn/xysz.jhtml"
+                    },
+                    {
+                        "name": "密码修改",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://202.194.116.59:8081/user/userchgpw2.jsp"
+                    },
+                    {
+                        "name": "烟大官方微博",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://weibo.com/ytu2014"
+                    }
+                ]
+            }
+        ],
+        "wj": [
+            {
+                "category": "文经生活",
+                "links": [
+                    {
+                        "name": "网上餐厅",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "https://wap.lewaimai.com/index.php?r=showdivpage/index&id=1357&from=singlemessage&isappinstalled=0&code=0313ITsS05T9sc2HSIuS0NvUsS03ITsR&state=lewaimaibase"
+                    },
+                    {
+                        "name": "文经贴吧",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://tieba.baidu.com/f?ie=utf-8&kw=%E7%83%9F%E5%8F%B0%E5%A4%A7%E5%AD%A6%E6%96%87%E7%BB%8F%E5%AD%A6%E9%99%A2"
+                    },
+                    {
+                        "name": "失物招领",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.wxhand.com/addon/LostAndFound/WapLostAndFound/lists/hmp/f844cb5d65d6b9a7c68c3ca75b24016f.html"
+                    },
+                    {
+                        "name": "表白墙",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.handschool.cn/addon/BiaoBai/BiaoBaiView/show/hmp/0c9ba4a11ddd07bf814abf677496927a.html"
+                    },
+                    {
+                        "name": "全景文经",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://720yun.com/t/2e928a8gatv?pano_id=722152"
+                    }
+                ]
+            },
+            {
+                "category": "文经校园",
+                "links": [
+                    {
+                        "name": "文经官网",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://wenjing.ytu.edu.cn/"
+                    },
+                    {
+                        "name": "校园一卡通",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://192.168.100.7/homeLogin.action"
+                    },
+                    {
+                        "name": "选课系统",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://jiaowu.wenjing.ytu.edu.cn/index.php/portal/article/index/id/2799"
+                    },
+                    {
+                        "name": "文经微信",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://m.najiaoluo.com/weixin/732.html"
+                    },
+                    {
+                        "name": "文经新闻",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://news.wenjing.ytu.edu.cn/"
+                    }
+                ]
+            }
+        ],
+        "public_links": [
+            {
+                "category": "社交",
+                "links": [
+                    {
+                        "name": "微博",
+                        "icon": "weibo red",
+                        "style": "basic",
+                        "url": "http://weibo.com/"
+                    },
+                    {
+                        "name": "微信网页版",
+                        "icon": "wechat green",
+                        "style": "basic",
+                        "url": "http://wx.qq.com/"
+                    },
+                    {
+                        "name": "百度贴吧",
+                        "icon": "paw blue",
+                        "style": "basic",
+                        "url": "http://tieba.baidu.com/"
+                    },
+                    {
+                        "name": "知乎",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.zhihu.com/"
+                    }
+                ]
+            },
+            {
+                "category": "娱乐",
+                "links": [
+                    {
+                        "name": "优酷",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.youku.com/"
+                    },
+                    {
+                        "name": "土豆",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.tudou.com/"
+                    },
+                    {
+                        "name": "Youtube",
+                        "icon": "youtube red",
+                        "style": "basic",
+                        "url": "http://www.youtube.com/"
+                    },
+                    {
+                        "name": "爱奇艺",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.iqiyi.com/"
+                    },
+                    {
+                        "name": "芒果TV",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.mgtv.com/"
+                    },
+                    {
+                        "name": "哔哩哔哩",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.bilibili.com/"
+                    },
+                    {
+                        "name": "AcFun",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.acfun.tv/"
+                    },
+                    {
+                        "name": "吐槽",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.tucao.tv/"
+                    },
+                    {
+                        "name": "多瑙影院",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.dnvod.eu/"
+                    },
+                    {
+                        "name": "虾米",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.xiami.com/"
+                    },
+                    {
+                        "name": "热歌榜",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://music.163.com/#/playlist?id=3778678"
+                    }
+                ]
+            },
+            {
+                "category": "购物",
+                "links": [
+                    {
+                        "name": "京东",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.jd.com/"
+                    },
+                    {
+                        "name": "天猫",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.tmall.com/"
+                    },
+                    {
+                        "name": "淘宝",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.taobao.com/"
+                    },
+                    {
+                        "name": "亚马逊",
+                        "icon": "amazon yellow",
+                        "style": "basic",
+                        "url": "http://www.amazon.cn/"
+                    },
+                    {
+                        "name": "一号店",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.yhd.com/"
+                    },
+                    {
+                        "name": "当当",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.dangdang.com/"
+                    },
+                    {
+                        "name": "网易严选",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://you.163.com/"
+                    }
+                ]
+            },
+            {
+                "category": "工具",
+                "links": [
+                    {
+                        "name": "12306",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.12306.cn/"
+                    },
+                    {
+                        "name": "百度地图",
+                        "icon": "marker red",
+                        "style": "basic",
+                        "url": "http://map.baidu.com/"
+                    },
+                    {
+                        "name": "大众点评",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.dianping.com/beijing"
+                    },
+                    {
+                        "name": "QQ邮箱",
+                        "icon": "qq black",
+                        "style": "basic",
+                        "url": "http://mail.qq.com/"
+                    },
+                    {
+                        "name": "网易邮箱",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://email.163.com/"
+                    },
+                    {
+                        "name": "Gmail",
+                        "icon": "google red",
+                        "style": "basic",
+                        "url": "http://mail.google.com"
+                    },
+                    {
+                        "name": "有道翻译",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://fanyi.youdao.com/"
+                    },
+                    {
+                        "name": "快递查询",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.kuaidi100.com/"
+                    },
+                    {
+                        "name": "itellyou",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://msdn.itellyou.cn/"
+                    }
+                ]
+            },
+            {
+                "category": "学习",
+                "links": [
+                    {
+                        "name": "CSDN",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.csdn.net/"
+                    },
+                    {
+                        "name": "W3School",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.w3school.com.cn/"
+                    },
+                    {
+                        "name": "Stack Overflow",
+                        "icon": "stack overflow orange",
+                        "style": "basic",
+                        "url": "http://stackoverflow.com/"
+                    },
+                    {
+                        "name": "GitHub",
+                        "icon": "github black",
+                        "style": "basic",
+                        "url": "http://github.com/"
+                    },
+                    {
+                        "name": "V2EX",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.v2ex.com/"
+                    },
+                    {
+                        "name": "SegmentFault",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://segmentfault.com/"
+                    },
+                    {
+                        "name": "掘金",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://gold.xitu.io/"
+                    },
+                    {
+                        "name": "网易公开课",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://open.163.com/"
+                    }
+                ]
+            },
+            {
+                "category": "求职",
+                "links": [
+                    {
+                        "name": "LinkedIn",
+                        "icon": "linkedin blue",
+                        "style": "basic",
+                        "url": "http://www.linkedin.com/"
+                    },
+                    {
+                        "name": "大街网",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.dajie.com/"
+                    },
+                    {
+                        "name": "拉勾网",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.lagou.com/"
+                    },
+                    {
+                        "name": "智联招聘",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://zhaopin.com/"
+                    },
+                    {
+                        "name": "前程无忧",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.51job.com/"
+                    },
+                    {
+                        "name": "应届生",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.yingjiesheng.com/"
+                    }
+                ]
+            }
+        ]
+    },
+    searchServer: [
         {
-            "category": "烟大生活",
-            "links": [
-                {
-                    "name": "烟大贴吧",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://tieba.baidu.com/f?kw=%D1%CC%CC%A8%B4%F3%D1%A7"
-                },
-                {
-                    "name": "图书馆",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.lib.ytu.edu.cn:9999/opac/reader_info.aspx"
-                },
-                {
-                    "name": "表白墙",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.handschool.cn/addon/BiaoBai/BiaoBaiView/show/hmp/0f4339c19535d77981f16aa6d3a8cf69.html?from=singlemessage"
-                },
-                {
-                    "name": "烟大集市",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://wx.quanzijishi.com/circle/ni61rl90ayb"
-                },
-                {
-                    "name": "全景烟大",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "https://720yun.com/t/af927ci6qyr?from=timeline&isappinstalled=0&openSpeakModal=true&pano_id=1240382"
-                }
-            ]
+            "id": "baidu",
+            "name": "百度",
+            "url": "http://www.baidu.com/s?wd=",
+            "suffix": "&ie=utf-8"
         },
         {
-            "category": "烟大校园",
-            "links": [
-                {
-                    "name": "烟大官网",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.ytu.edu.cn/"
-                },
-                {
-                    "name": "烟大导航",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.ytu.edu.cn/wzdt/index.jhtml"
-                },
-                {
-                    "name": "选课系统",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://jwc.ytu.edu.cn/xk/xuankefuwu.htm"
-                },
-                {
-                    "name": "网上民生",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.ytu.edu.cn/wsms/index.jhtml"
-                },
-                {
-                    "name": "烟大新闻",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://xcb.ytu.edu.cn/"
-                },
-                {
-                    "name": "学院导航",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.ytu.edu.cn/xysz.jhtml"
-                },
-                {
-                    "name": "密码修改",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://202.194.116.59:8081/user/userchgpw2.jsp"
-                },
-                {
-                    "name": "烟大官方微博",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://weibo.com/ytu2014"
-                }
-            ]
-        }
-    ],
-    "wj": [
-        {
-            "category": "文经生活",
-            "links": [
-                {
-                    "name": "网上餐厅",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "https://wap.lewaimai.com/index.php?r=showdivpage/index&id=1357&from=singlemessage&isappinstalled=0&code=0313ITsS05T9sc2HSIuS0NvUsS03ITsR&state=lewaimaibase"
-                },
-                {
-                    "name": "文经贴吧",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://tieba.baidu.com/f?ie=utf-8&kw=%E7%83%9F%E5%8F%B0%E5%A4%A7%E5%AD%A6%E6%96%87%E7%BB%8F%E5%AD%A6%E9%99%A2"
-                },
-                {
-                    "name": "失物招领",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.wxhand.com/addon/LostAndFound/WapLostAndFound/lists/hmp/f844cb5d65d6b9a7c68c3ca75b24016f.html"
-                },
-                {
-                    "name": "表白墙",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.handschool.cn/addon/BiaoBai/BiaoBaiView/show/hmp/0c9ba4a11ddd07bf814abf677496927a.html"
-                },
-                {
-                    "name": "全景文经",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://720yun.com/t/2e928a8gatv?pano_id=722152"
-                }
-            ]
+            "id": "google",
+            "name": "谷歌",
+            "url": "http://www.google.com/search?q=",
+            "suffix": ""
         },
         {
-            "category": "文经校园",
-            "links": [
-                {
-                    "name": "文经官网",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://wenjing.ytu.edu.cn/"
-                },
-                {
-                    "name": "校园一卡通",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://192.168.100.7/homeLogin.action"
-                },
-                {
-                    "name": "选课系统",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://jiaowu.wenjing.ytu.edu.cn/index.php/portal/article/index/id/2799"
-                },
-                {
-                    "name": "文经微信",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://m.najiaoluo.com/weixin/732.html"
-                },
-                {
-                    "name": "文经新闻",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://news.wenjing.ytu.edu.cn/"
-                }
-            ]
-        }
-    ],
-    "public_links": [
-        {
-            "category": "社交",
-            "links": [
-                {
-                    "name": "微博",
-                    "icon": "weibo red",
-                    "style": "basic",
-                    "url": "http://weibo.com/"
-                },
-                {
-                    "name": "微信网页版",
-                    "icon": "wechat green",
-                    "style": "basic",
-                    "url": "http://wx.qq.com/"
-                },
-                {
-                    "name": "百度贴吧",
-                    "icon": "paw blue",
-                    "style": "basic",
-                    "url": "http://tieba.baidu.com/"
-                },
-                {
-                    "name": "知乎",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.zhihu.com/"
-                }
-            ]
+            "id": "ieeexplore",
+            "name": "IEEE Xplore",
+            "url": "http://ieeexplore.ieee.org/search/searchresult.jsp?queryText=",
+            "suffix": ""
         },
         {
-            "category": "娱乐",
-            "links": [
-                {
-                    "name": "优酷",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.youku.com/"
-                },
-                {
-                    "name": "土豆",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.tudou.com/"
-                },
-                {
-                    "name": "Youtube",
-                    "icon": "youtube red",
-                    "style": "basic",
-                    "url": "http://www.youtube.com/"
-                },
-                {
-                    "name": "爱奇艺",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.iqiyi.com/"
-                },
-                {
-                    "name": "芒果TV",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.mgtv.com/"
-                },
-                {
-                    "name": "哔哩哔哩",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.bilibili.com/"
-                },
-                {
-                    "name": "AcFun",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.acfun.tv/"
-                },
-                {
-                    "name": "吐槽",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.tucao.tv/"
-                },
-                {
-                    "name": "多瑙影院",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.dnvod.eu/"
-                },
-                {
-                    "name": "虾米",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.xiami.com/"
-                },
-                {
-                    "name": "热歌榜",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://music.163.com/#/playlist?id=3778678"
-                }
-            ]
+            "id": "baiduxueshu",
+            "name": "百度学术",
+            "url": "http://xueshu.baidu.com/s?wd=",
+            "suffix": ""
         },
         {
-            "category": "购物",
-            "links": [
-                {
-                    "name": "京东",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.jd.com/"
-                },
-                {
-                    "name": "天猫",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.tmall.com/"
-                },
-                {
-                    "name": "淘宝",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.taobao.com/"
-                },
-                {
-                    "name": "亚马逊",
-                    "icon": "amazon yellow",
-                    "style": "basic",
-                    "url": "http://www.amazon.cn/"
-                },
-                {
-                    "name": "一号店",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.yhd.com/"
-                },
-                {
-                    "name": "当当",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.dangdang.com/"
-                },
-                {
-                    "name": "网易严选",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://you.163.com/"
-                }
-            ]
+            "id": "googlescholar",
+            "name": "谷歌学术",
+            "url": "http://scholar.google.com/scholar?q=",
+            "suffix": ""
         },
         {
-            "category": "工具",
-            "links": [
-                {
-                    "name": "12306",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.12306.cn/"
-                },
-                {
-                    "name": "百度地图",
-                    "icon": "marker red",
-                    "style": "basic",
-                    "url": "http://map.baidu.com/"
-                },
-                {
-                    "name": "大众点评",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.dianping.com/beijing"
-                },
-                {
-                    "name": "QQ邮箱",
-                    "icon": "qq black",
-                    "style": "basic",
-                    "url": "http://mail.qq.com/"
-                },
-                {
-                    "name": "网易邮箱",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://email.163.com/"
-                },
-                {
-                    "name": "Gmail",
-                    "icon": "google red",
-                    "style": "basic",
-                    "url": "http://mail.google.com"
-                },
-                {
-                    "name": "有道翻译",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://fanyi.youdao.com/"
-                },
-                {
-                    "name": "快递查询",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.kuaidi100.com/"
-                }
-            ]
+            "id": "jd",
+            "name": "京东",
+            "url": "https://so.m.jd.com/ware/search.action?keyword=",
+            "suffix": "&enc=utf-8"
         },
         {
-            "category": "学习",
-            "links": [
-                {
-                    "name": "CSDN",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.csdn.net/"
-                },
-                {
-                    "name": "W3School",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.w3school.com.cn/"
-                },
-                {
-                    "name": "Stack Overflow",
-                    "icon": "stack overflow orange",
-                    "style": "basic",
-                    "url": "http://stackoverflow.com/"
-                },
-                {
-                    "name": "GitHub",
-                    "icon": "github black",
-                    "style": "basic",
-                    "url": "http://github.com/"
-                },
-                {
-                    "name": "V2EX",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.v2ex.com/"
-                },
-                {
-                    "name": "SegmentFault",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://segmentfault.com/"
-                },
-                {
-                    "name": "掘金",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://gold.xitu.io/"
-                },
-                {
-                    "name": "网易公开课",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://open.163.com/"
-                }
-            ]
+            "id": "taobao",
+            "name": "淘宝",
+            "url": "https://s.m.taobao.com/h5?q=",
+            "suffix": ""
         },
         {
-            "category": "求职",
-            "links": [
-                {
-                    "name": "LinkedIn",
-                    "icon": "linkedin blue",
-                    "style": "basic",
-                    "url": "http://www.linkedin.com/"
-                },
-                {
-                    "name": "大街网",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.dajie.com/"
-                },
-                {
-                    "name": "拉勾网",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.lagou.com/"
-                },
-                {
-                    "name": "智联招聘",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://zhaopin.com/"
-                },
-                {
-                    "name": "前程无忧",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.51job.com/"
-                },
-                {
-                    "name": "应届生",
-                    "icon": "",
-                    "style": "basic",
-                    "url": "http://www.yingjiesheng.com/"
-                }
-            ]
+            "id": "wechat",
+            "name": "微信",
+            "url": "http://weixin.sogou.com/weixin?query=",
+            "suffix": ""
+        },
+        {
+            "id": "zhihu",
+            "name": "知乎",
+            "url": "http://www.zhihu.com/search?q=",
+            "suffix": ""
+        },
+        {
+            "id": "weibo",
+            "name": "微博",
+            "url": "http://s.weibo.com/weibo/",
+            "suffix": ""
+        },
+        {
+            "id": "douban",
+            "name": "豆瓣",
+            "url": "https://m.douban.com/search/?query=",
+            "suffix": ""
+        },
+        {
+            "id": "music",
+            "name": "音乐",
+            "url": "http://music.hao123.com/search?key=",
+            "suffix": ""
+        },
+        {
+            "id": "panci",
+            "name": "胖次",
+            "url": "http://www.panc.cc/s/",
+            "suffix": "/td_0"
+        },
+        {
+            "id": "github",
+            "name": "GitHub",
+            "url": "https://github.com/search?q=",
+            "suffix": ""
         }
     ]
-}
 };
