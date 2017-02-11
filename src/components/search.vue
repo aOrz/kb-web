@@ -91,6 +91,14 @@
       changeAcademe () {
         this.academe = this.school === 'yd' ? '计' : '文会';
       },
+      parsePickerInfo (result) {
+        let that = this;
+        that.school = result[0].value;
+        that.academe = result[1].value;
+        that.grade = result[2].value;
+        that.schoolInfo = result[0].label + ',' + result[1].label + ',' + result[2].label;
+        that.getClass();
+      },
       showPicker () {
         let that = this;
         let params = that.$route.params;
@@ -107,11 +115,8 @@
            defaultValue: defaultValue,
            depth: 3,
            onConfirm: function (result) {
-               that.school = result[0].value;
-               that.academe = result[1].value;
-               that.grade = result[2].value;
-               that.schoolInfo = result[0].label + ',' + result[1].label + ',' + result[2].label;
-               that.getClass();
+              window.localStorage.setItem('pickerInfo', JSON.stringify(result));
+               that.parsePickerInfo(result);
            },
            id: 'd'
         });
@@ -152,7 +157,10 @@
       }
     },
     created () {
-      // this.showPicker();
+      let pickerInfo = localStorage.getItem('pickerInfo');
+      if (pickerInfo) {
+        this.parsePickerInfo(JSON.parse(pickerInfo));
+      }
     },
     components: {
       duoShuo: duoshuoComponent,
