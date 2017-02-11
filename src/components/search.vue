@@ -123,8 +123,18 @@
       },
       getClass () {
         let that = this;
-        let loading = weui.loading('狂奔中~');
+        let infoStr = that.school + that.academe + that.grade;
+        let classList = sessionStorage.getItem(infoStr);
 
+        if (classList) {
+          classList = JSON.parse(classList);
+          that.classs = classList.body;
+          that.className = that.classs[0];
+          return ;
+        }
+
+        let loading = weui.loading('狂奔中~');
+        
         that.$http.get(`/controller/course_controller.php?c=Getclass&schoolName=${that.school}&school_info=${that.academe}${that.grade}`, {
             // use before callback
             before(request) {
@@ -143,6 +153,7 @@
               weui.alert('网络错误');
             } else {
               if (typeof response.body === 'object') {
+                sessionStorage.setItem(infoStr, JSON.stringify(response))
                 that.classs = response.body;
                 that.className = that.classs[0];
               } else {
