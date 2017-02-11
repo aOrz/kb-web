@@ -27,9 +27,9 @@
         </div>
       </form>
     </div>
-    <!-- <duo-shuo :thread-key="threadKey"></duo-shuo> -->
     <recommended v-for="links in schoolLinks" :links="links"></recommended>
     <recommended v-for="links in publicLinks" :links="links"></recommended>
+    <duo-shuo :thread-key="threadKey"></duo-shuo>
   </div>
 </template>
 <style scoped>

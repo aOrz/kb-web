@@ -30,6 +30,16 @@
           <section>
               <table class="donate">
                   <tbody>
+                        <tr>
+                          <td>未知</td>
+                          <td>5元</td>
+                          <td>微信转账</td>
+                      </tr>
+                        <tr>
+                          <td>未知</td>
+                          <td>10元</td>
+                          <td>微信转账</td>
+                      </tr>
                       <tr>
                           <td>未知</td>
                           <td>10元</td>
