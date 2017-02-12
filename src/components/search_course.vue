@@ -68,6 +68,7 @@
     },
     methods: {
       search () {
+        _hmt.push(['_trackEvent', '查课表', this.school, `${this.academe}/${this.classNum}`]);
         if (this.school && this.academe && this.className) {
           window.location.href = `#/course_table.html/${this.school}/${this.academe}/${this.classNum}`;
         } else {
