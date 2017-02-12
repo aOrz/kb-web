@@ -68,7 +68,7 @@
     },
     methods: {
       search () {
-        _hmt.push(['_trackEvent', '查课表', this.school, `${this.academe}/${this.classNum}`]);
+        _hmt.push(['_trackEvent', 'course', this.school, `${this.academe}/${this.classNum}`]);
         if (this.school && this.academe && this.className) {
           window.location.href = `#/course_table.html/${this.school}/${this.academe}/${this.classNum}`;
         } else {
@@ -106,6 +106,7 @@
            defaultValue: defaultValue,
            depth: 3,
            onConfirm: function (result) {
+            _hmt.push(['_trackEvent', 'course', 'picker', `${this.academe}/${this.classNum}`]);
               window.localStorage.setItem('pickerInfo', JSON.stringify(result));
                that.parsePickerInfo(result);
            },

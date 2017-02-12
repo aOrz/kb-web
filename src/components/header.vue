@@ -39,7 +39,7 @@
     },
     methods: {
       go (index) {
-        _hmt.push(['_trackEvent', '导航栏', index]);
+        _hmt.push(['_trackEvent', 'header', index]);
         this.selected = index;
       }
     }
