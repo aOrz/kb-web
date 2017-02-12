@@ -4,7 +4,7 @@
         <span class="weui-loadmore__tips">{{links.category}}</span>
     </div>
     <div class="links-panel">
-        <a v-for="l in links.links" :href="l.url">{{l.name}}</a>
+        <a v-for="l in links.links" @click="go(links.category,l.name)" :href="l.url">{{l.name}}</a>
     </div>
   </section>
 </template>
@@ -14,6 +14,11 @@
     data () {
       return {
 
+      }
+    },
+    methods: {
+      go (category, name) {
+        _hmt.push(['_trackEvent', '链接', category, name]);
       }
     }
   }

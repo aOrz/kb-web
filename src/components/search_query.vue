@@ -20,6 +20,7 @@
     },
     methods: {
       search () {
+        _hmt.push(['_trackEvent', '搜索', this.url, this.searchString]);
         window.location.href = this.url + this.searchString;
       }
     }

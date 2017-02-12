@@ -39,6 +39,7 @@
     },
     methods: {
       go (index) {
+        _hmt.push(['_trackEvent', '导航栏', index]);
         this.selected = index;
       }
     }

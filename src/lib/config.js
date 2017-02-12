@@ -356,6 +356,47 @@ module.exports = {
         ],
         "public_links": [
             {
+                "category": "吃喝玩乐",
+                "links": [
+                    {
+                        "name": "美团",
+                        "icon": "weibo red",
+                        "style": "basic",
+                        "url": "http://i.meituan.com/?city=yantai"
+                    },
+                    {
+                        "name": "周边游",
+                        "icon": "wechat green",
+                        "style": "basic",
+                        "url": "http://i.meituan.com/trip/lvyou/triplist/poi/?limit=20&offset=0&cityId=104&sort=smart&cateId=195&selectedCityId=104&fromCityId=104"
+                    },
+                    {
+                        "name": "KTV",
+                        "icon": "paw blue",
+                        "style": "basic",
+                        "url": "http://i.meituan.com/ktv/yantai?cid=10&bid=5660&stid_b=1&cateType=poi"
+                    },
+                    {
+                        "name": "大众点评",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.dianping.com/beijing"
+                    },
+                    {
+                        "name": "电影",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://m.maoyan.com/imeituan/?_v_=yes&ci=104&stid_b=1&cevent=imt%2Fhomepage%2Fcategory1%2F99"
+                    },
+                    {
+                        "name": "美食",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://i.meituan.com/yantai?cid=1&bid=5660&sid=distance&stid_b=_b2&cateType=poi"
+                    }
+                ]
+            },
+            {
                 "category": "社交",
                 "links": [
                     {
@@ -459,10 +500,10 @@ module.exports = {
                 "category": "购物",
                 "links": [
                     {
-                        "name": "京东",
+                        "name": "美团",
                         "icon": "",
                         "style": "basic",
-                        "url": "http://www.jd.com/"
+                        "url": "http://i.meituan.com/"
                     },
                     {
                         "name": "天猫",
@@ -475,6 +516,12 @@ module.exports = {
                         "icon": "",
                         "style": "basic",
                         "url": "http://www.taobao.com/"
+                    },
+                    {
+                        "name": "京东",
+                        "icon": "",
+                        "style": "basic",
+                        "url": "http://www.jd.com/"
                     },
                     {
                         "name": "亚马逊",
@@ -516,12 +563,6 @@ module.exports = {
                         "icon": "marker red",
                         "style": "basic",
                         "url": "http://map.baidu.com/"
-                    },
-                    {
-                        "name": "大众点评",
-                        "icon": "",
-                        "style": "basic",
-                        "url": "http://www.dianping.com/beijing"
                     },
                     {
                         "name": "QQ邮箱",
@@ -703,7 +744,7 @@ module.exports = {
         {
             "id": "wechat",
             "name": "微信",
-            "url": "http://weixin.sogou.com/weixin?query=",
+            "url": "http://weixin.sogou.com/weixinwap?type=2&query=",
             "suffix": ""
         },
         {
