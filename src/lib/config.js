@@ -35,6 +35,7 @@ let date = new Date();
   }
 
 module.exports = {
+    searchTips: '新版上线，欢迎再下面留言区提意见哦！',
     gradeList: arr, 
     startDate: '2017-02-27',
     maxDate: '8m',

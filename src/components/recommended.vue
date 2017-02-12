@@ -18,7 +18,7 @@
     },
     methods: {
       go (category, name) {
-        _hmt.push(['_trackEvent', '链接', category, name]);
+        _hmt.push(['_trackEvent', 'links', category, name]);
       }
     }
   }

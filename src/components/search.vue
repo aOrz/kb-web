@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+    <tips v-if="tips" :tips="tips"></tips>
     <search-course @changeschool="setSchool" school-name="school"></search-course>
     <search-query></search-query>
     <recommended v-for="links in schoolLinks" :links="links"></recommended>
@@ -15,6 +16,7 @@
   import recommendedComponent from './recommended';
   import searchCourseComponent from './search_course';
   import searchQueryComponent from './search_query';
+  import tipsComponent from './tips';
   import config from '../lib/config';
 
   import weui from 'weui.js';
@@ -27,6 +29,7 @@
     name: 'search',
     data () {
       return {
+        tips: config.searchTips,
         school: this.$route.params.school ? this.$route.params.school : 'yd',
         threadKey: 'index',
         publicLinks: config.links.public_links
@@ -46,7 +49,8 @@
       duoShuo: duoshuoComponent,
       recommended: recommendedComponent,
       searchCourse: searchCourseComponent,
-      searchQuery: searchQueryComponent
+      searchQuery: searchQueryComponent,
+      tips: tipsComponent
     }
   }
 </script>
