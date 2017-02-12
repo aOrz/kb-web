@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style type="text/scss">
+<style type="text/scss" scoped>
   header {
     position: fixed;
     top: 0;

@@ -99,6 +99,10 @@
   .content {
     overflow: auto;
   }
+  .content:after{
+    content: '';
+    height: 0;
+  }
   .table th,
   .table td {
       padding: 4px;
