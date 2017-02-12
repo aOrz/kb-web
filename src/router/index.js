@@ -38,12 +38,12 @@ export default new Router({
       component: searchComponent
     },
     {
-      path: '/donate.html',
+      path: '/donate',
       name: 'donate',
       component: donateComponent
     },
     {
-      path: '/course_table.html/:school/:academe/:class_name',
+      path: '/course_table/:school/:academe/:class_name',
       name: 'course_table',
       component: courseTableComponent
     },

@@ -1,22 +1,24 @@
 <template>
   <section v-if="isShow">
-    <p>{{tips}} <span @click="closeTips()" class="close"></span></p>
+    <p>{{tips.text}} <span @click="closeTips()" class="close"></span></p>
   </section>
 </template>
 <script>
   export default {
     name: 'tips',
     props: {
-      tips: String
+      tips: Object
     },
     data () {
       return {
-        isShow: true
+        isShow: this.tips.id != localStorage['id']
       }
     },
     methods: {
       closeTips() {
         this.isShow = false;
+        localStorage.id = this.tips.id;
+        _hmt.push(['_trackEvent', 'closeTips', 'picker', `1`]);
       }
     }
   }

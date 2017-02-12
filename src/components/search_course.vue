@@ -68,9 +68,9 @@
     },
     methods: {
       search () {
-        _hmt.push(['_trackEvent', 'course', this.school, `${this.academe}/${this.classNum}`]);
+        _hmt.push(['_trackEvent', 'course', this.school, `${this.academe}/${this.grade}`]);
         if (this.school && this.academe && this.className) {
-          window.location.href = `#/course_table.html/${this.school}/${this.academe}/${this.classNum}`;
+          window.location.href = `#/course_table/${this.school}/${this.academe}/${this.classNum}`;
         } else {
           weui.topTips('填完再查嘛！');
         }
@@ -85,6 +85,7 @@
         that.academe = result[1].value;
         that.grade = result[2].value;
         that.schoolInfo = result[0].label + ',' + result[1].label + ',' + result[2].label;
+        _hmt.push(['_trackEvent', 'coursepicker', this.school, `${this.academe}/${this.grade}`]);
         that.getClass();
       },
       showPicker () {
@@ -103,14 +104,13 @@
           defaultValue.push(that.grade);
         }
         weui.picker(config.gradeList, {
-           defaultValue: defaultValue,
-           depth: 3,
-           onConfirm: function (result) {
-            _hmt.push(['_trackEvent', 'course', 'picker', `${this.academe}/${this.classNum}`]);
-              window.localStorage.setItem('pickerInfo', JSON.stringify(result));
-               that.parsePickerInfo(result);
-           },
-           id: 'd'
+          defaultValue: defaultValue,
+          depth: 3,
+          onConfirm: function (result) {
+          window.localStorage.setItem('pickerInfo', JSON.stringify(result));
+          that.parsePickerInfo(result);
+          },
+          id: 'd'
         });
       },
       getClass () {

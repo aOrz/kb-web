@@ -20,7 +20,7 @@
     },
     methods: {
       search () {
-        _hmt.push(['_trackEvent', 'search-query', 'url', this.searchString]);
+        _hmt.push(['_trackEvent', 'input', 'url', this.searchString]);
         window.location.href = this.url + this.searchString;
       }
     }

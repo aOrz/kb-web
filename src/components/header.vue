@@ -32,7 +32,7 @@
         },
         {
           text: '打赏',
-          href: '#/donate.html'
+          href: '#/donate'
         }],
         selected: 1
       }

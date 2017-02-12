@@ -35,7 +35,10 @@ let date = new Date();
   }
 
 module.exports = {
-    searchTips: '新版上线，欢迎再下面留言区提意见哦！',
+    searchTips: {
+        id: 1,
+        text: '新版上线，欢迎在下面留言区提意见哦！'
+    },
     gradeList: arr, 
     startDate: '2017-02-27',
     maxDate: '8m',
@@ -394,6 +397,10 @@ module.exports = {
                         "icon": "",
                         "style": "basic",
                         "url": "http://i.meituan.com/yantai?cid=1&bid=5660&sid=distance&stid_b=_b2&cateType=poi"
+                    },
+                    {
+                        "name": "汽车票",
+                        "url": "http://ytjy.ytjyjtyxgs.com/webhtml/"
                     }
                 ]
             },
