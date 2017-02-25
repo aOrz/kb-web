@@ -150,7 +150,7 @@
                 that.className = that.classs[0];
               } else {
                 weui.alert('找不到班级');
-                window.location.href = '/#/'
+                // window.location.href = '/#/'
               }
             }
           }, response => {
