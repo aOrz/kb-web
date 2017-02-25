@@ -23,6 +23,7 @@ export default {
 </script>
 
 <style type="text/scss" scoped>
+  @import '../static/weui.min.css';
   header {
     position: fixed;
     top: 0;
