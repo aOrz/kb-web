@@ -127,7 +127,7 @@
 
         let loading = weui.loading('狂奔中~');
         
-        that.$http.get(`/controller/course_controller.php?c=Getclass&schoolName=${that.school}&school_info=${that.academe}${that.grade}`, {
+        that.$http.get(`//kb.fddcn.cn/controller/course_controller.php?c=Getclass&schoolName=${that.school}&school_info=${that.academe}${that.grade}`, {
             // use before callback
             before(request) {
 
