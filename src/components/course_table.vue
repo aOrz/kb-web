@@ -52,7 +52,7 @@ export default {
                 let params = that.$route.params;
                 let loading = weui.loading('狂奔中~');
 
-                that.$http.get(`/controller/course_controller.php?c=GetCourseByClassName&schoolName=${params.school}&collegeName=${params.academe}&classNum=${params.class_name}`, {
+                that.$http.get(`//kb.fddcn.cn/controller/course_controller.php?c=GetCourseByClassName&schoolName=${params.school}&collegeName=${params.academe}&classNum=${params.class_name}`, {
                     // use before callback
                     before(request) {
 
