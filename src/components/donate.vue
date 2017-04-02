@@ -78,20 +78,15 @@
                 </tbody>
             </table>
         </section>
-        <duo-shuo :thread-key="threadKey"></duo-shuo>
     </article>
 </template>
 <script>
-import duoshuoComponent from './duoshuo';
 
 export default {
     data() {
             return {
                 threadKey: 'juanzeng'
             }
-        },
-        components: {
-            duoShuo: duoshuoComponent
         }
 }
 </script>

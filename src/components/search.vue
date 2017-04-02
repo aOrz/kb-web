@@ -5,14 +5,12 @@
     <search-query></search-query>
     <recommended v-for="links in schoolLinks" :links="links"></recommended>
     <recommended v-for="links in publicLinks" :links="links"></recommended>
-    <duo-shuo :thread-key="threadKey"></duo-shuo>
   </div>
 </template>
 <style scoped>
 
 </style>
 <script>
-  import duoshuoComponent from './duoshuo';
   import recommendedComponent from './recommended';
   import searchCourseComponent from './search_course';
   import searchQueryComponent from './search_query';
@@ -46,7 +44,6 @@
       }
     },
     components: {
-      duoShuo: duoshuoComponent,
       recommended: recommendedComponent,
       searchCourse: searchCourseComponent,
       searchQuery: searchQueryComponent,
