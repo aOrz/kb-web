@@ -1,6 +1,6 @@
 <template>
   <section v-if="isShow">
-    <p>{{tips.text}} <span @click="closeTips()" class="close"></span></p>
+    <p><a :href="tips.href">{{tips.text}}</a> <span @click="closeTips()" class="close"></span></p>
   </section>
 </template>
 <script>
@@ -34,6 +34,9 @@
       line-height: 1.5em;
       padding: 5px 8px;
       position: relative;
+      a {
+        color: #1aad19;
+      }
       .close {  
         width: 14px;  
         height: 14px;  

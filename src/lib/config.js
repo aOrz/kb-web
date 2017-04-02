@@ -102,8 +102,9 @@ let date = new Date();
 
 module.exports = {
     searchTips: {
-        id: 1,
-        text: '新版上线，欢迎在下面留言区提意见哦！'
+        id: 2,
+        text: '快上船去大连，来不及解释！',
+        href: 'http://i.meituan.com/awp/hfe/hotel-fe-ship/search/index.html'
     },
     gradeList: arr, 
     startDate: '2017-02-27',
@@ -467,6 +468,10 @@ module.exports = {
                     {
                         "name": "汽车票",
                         "url": "http://ytjy.ytjyjtyxgs.com/webhtml/"
+                    },
+                    {
+                        "name": "船票",
+                        "url": "https://i.meituan.com/awp/hfe/hotel-fe-ship/search/index.html"
                     }
                 ]
             },
