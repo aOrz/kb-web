@@ -6,12 +6,10 @@
 <script>
   export default {
     name: 'tips',
-    props: {
-      tips: Object
-    },
     data () {
       return {
-        isShow: this.tips.id != localStorage['id']
+        isShow: false,
+        tips: {}
       }
     },
     methods: {
@@ -20,6 +18,30 @@
         localStorage.id = this.tips.id;
         _hmt.push(['_trackEvent', 'closeTips', 'picker', `1`]);
       }
+    },
+    created () {
+      let that = this;
+      this.$http.get(`http://easy-mock.com/mock/595f7eac9adc231f357b9d78/minikb/index/tips`, {
+          // use before callback
+          before(request) {
+
+              // abort previous request, if exists
+              if (this.previousRequest) {
+                  this.previousRequest.abort();
+              }
+
+              // set previous request on Vue instance
+              this.previousRequest = request;
+          }
+      }).then(response => {
+          if (response.status == 200) {
+              that.tips = response.data;
+              if (that.tips.id != localStorage['id']) {
+                that.isShow = true;
+              }
+              
+          }
+      });
     }
   }
 </script>

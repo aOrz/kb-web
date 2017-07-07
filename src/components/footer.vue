@@ -4,7 +4,7 @@
             <a href="http://a.app.qq.com/o/simple.jsp?pkgname=io.dcloud.H5291D2691" class="weui-footer__link">迷你课表</a>
             <a href="/#/donate" class="weui-footer__link">打个赏吧</a>
         </p>
-        <p class="weui-footer__text">Copyright © 2014-2016 迷你课表</p>
+        <p class="weui-footer__text">Copyright © 2014-2017 迷你课表</p>
     </div>
 </template>
 <script>

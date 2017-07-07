@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <tips v-if="tips" :tips="tips"></tips>
+    <tips></tips>
     <search-course @changeschool="setSchool" school-name="school"></search-course>
     <search-query></search-query>
     <recommended v-for="links in schoolLinks" :links="links"></recommended>
@@ -27,7 +27,6 @@
     name: 'search',
     data () {
       return {
-        tips: config.searchTips,
         school: this.$route.params.school ? this.$route.params.school : 'yd',
         threadKey: 'index',
         publicLinks: config.links.public_links

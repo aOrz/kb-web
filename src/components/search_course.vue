@@ -45,9 +45,6 @@
 
   import weui from 'weui.js';
   import Vue from 'vue';
-  import VueResource from 'vue-resource';
-
-  Vue.use(VueResource);
   
   export default {
     data () {
