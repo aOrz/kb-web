@@ -49,28 +49,47 @@ export default {
             donate: []
         }
     },
-    created () {
-       let that = this;
-      this.$http.get(`http://easy-mock.com/mock/595f7eac9adc231f357b9d78/minikb/inde/donate`, {
-          // use before callback
-          before(request) {
+    created() {
+        let that = this;
+        this.$http.get(`http://easy-mock.com/mock/595f7eac9adc231f357b9d78/minikb/inde/donate`, {
+            // use before callback
+            before(request) {
 
-              // abort previous request, if exists
-              if (this.previousRequest) {
-                  this.previousRequest.abort();
-              }
+                // abort previous request, if exists
+                if (this.previousRequest) {
+                    this.previousRequest.abort();
+                }
 
-              // set previous request on Vue instance
-              this.previousRequest = request;
-          }
-      }).then(response => {
-          if (response.status == 200) {
-              that.donate = response.data;
-          }
-      }); 
+                // set previous request on Vue instance
+                this.previousRequest = request;
+            }
+        }).then(response => {
+            if (response.status == 200) {
+                that.donate = response.data;
+            }
+        });
     }
 }
 </script>
 <style type="text/scss" scoped>
-    .img { text-align: center; width: 100%; } .img img { max-width: 60%; } .donate { width: 100%; } .weui_article { padding: 30px 15px 0; } .navbar-brand { color: #000000; }
+.img {
+    text-align: center;
+    width: 100%;
+}
+
+.img img {
+    max-width: 60%;
+}
+
+.donate {
+    width: 100%;
+}
+
+.weui_article {
+    padding: 30px 15px 0;
+}
+
+.navbar-brand {
+    color: #000000;
+}
 </style>

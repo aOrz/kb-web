@@ -25,6 +25,12 @@ const donateComponent = resolve => {
   })
 }
 
+const courseListCourseComponent = resolve => {
+  require.ensure(['../components/course_list.vue'], () => {
+    resolve(require('../components/course_list.vue'))
+  })
+}
+
 export default new Router({
   routes: [
     {
@@ -51,6 +57,11 @@ export default new Router({
       path: '/calendar',
       name: 'calendar',
       component: calendarComponent
+    },
+    {
+      path: '/course_list/:school/:type/:search',
+      name: 'courseList',
+      component: courseListCourseComponent
     }
   ],
   scrollBehavior (to, from, savedPosition) {

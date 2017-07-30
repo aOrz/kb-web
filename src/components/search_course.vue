@@ -1,25 +1,61 @@
 <template>
   <div class="padding-lr">
-    <div class="weui-cell weui-cell_select weui-select_after">
-      <div class="weui-cell">
-        <label class="weui-label">专业: </label>
-      </div>
-      <div class="weui-cell_bd weui-cell_primary info">
-        <span @click="showPicker" class="weui-input">{{schoolInfo}}</span>
-      </div>
-    </div>
-    <div class="weui-cells weui-cells_form" style="margin-top:0;">
-      <div class="weui-cell">
-        <div class="weui-cell_hd">
-          <label class="weui-label">班级: </label>
+    <div class="weui-cells weui-cells_form">
+      <div class="weui-cell weui-cell_switch">
+          <div class="weui-cell__bd">查蹭课</div>
+          <div class="weui-cell__ft">
+              <input class="weui-switch" v-model="more" type="checkbox">
+          </div>
         </div>
-        <div class="weui-cell_bd weui-cell_primary">
-          <select v-model="className" class="weui-select">
-              <option v-for="i in classs" :value="i">{{i}}</option>
-          </select>
+        <div v-if="!more" class="weui-cell">
+          <div class="weui-cell__hd">
+            <label class="weui-label">专业: </label>
+          </div>
+          <div class="weui-cell__bd weui-cell_primary info">
+            <span @click="showPicker" class="weui-input">{{schoolInfo}}</span>
+          </div>
         </div>
-      </div>
+        <div v-if="!more" class="weui-cell weui-cell_select-after">
+          <div class="weui-cell__hd">
+              <label for="" class="weui-label">班级：</label>
+          </div>
+          <div class="weui-cell__bd">
+              <select v-model="className" class="weui-select">
+                <option v-for="i in classs" :value="i">{{i}}</option>
+              </select>
+          </div>
+        </div>
+        <section v-if="more">
+          <div class="weui-cell weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label for="" class="weui-label">学校：</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select v-model="more_school" class="weui-select">
+                  <option value="yd">烟大</option>
+                  <option value="wj">文经</option>
+                </select>
+            </div>
+          </div>
+          <div class="weui-cell weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label for="" class="weui-label">按照：</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select v-model="more_type" class="weui-select">
+                    <option value="GetCourceByCourseName">课程名</option>
+                    <option value="GetCourceByTeacherName">老师名</option>
+                </select>
+            </div>
+          </div>
+          <div class="weui-cell">
+              <div class="weui-cell__bd">
+                  <input v-model="more_search" class="weui-input" type="text" placeholder="请输入搜索内容，如“计算机”">
+              </div>
+          </div>
+        </section>
     </div>
+   
     <div class="weui-cells weui-cells_form">   
       <input type="button" @click="search" value="查询课表" class="weui-btn weui-btn_primary"> 
     </div>
@@ -32,7 +68,7 @@
   .weui-label {
     width: 70px;
   }
-  .weui-cell_bd+.weui-cell_primary {
+  .weui-cell__bd+.weui-cell_primary {
     flex: 2;
   }
   .weui-select {
@@ -54,7 +90,11 @@
         school: this.schoolName,
         grade: '',
         schoolInfo: '请选择学校专业',
-        classs: []
+        classs: [],
+        more: false, //查蹭课
+        more_search: '',
+        more_school: 'yd',
+        more_type: 'GetCourceByCourseName'
       }
     },
     props: ['schoolName'],
@@ -65,11 +105,19 @@
     },
     methods: {
       search () {
-        _hmt.push(['_trackEvent', 'course', this.school, `${this.academe}/${this.grade}`]);
-        if (this.school && this.academe && this.className) {
-          window.location.href = `#/course_table/${this.school}/${this.academe}/${this.classNum}`;
+        if (!this.more) {
+          _hmt.push(['_trackEvent', 'course', this.school, `${this.academe}/${this.grade}`]);
+          if (this.school && this.academe && this.className) {
+            window.location.href = `#/course_table/${this.school}/${this.academe}/${this.classNum}`;
+          } else {
+            weui.topTips('填完再查嘛！');
+          }
         } else {
-          weui.topTips('填完再查嘛！');
+          if (this.more_search) {
+            window.location.href = `#/course_list/${this.more_school}/${this.more_type}/${this.more_search}`
+          } else {
+            weui.topTips('填完再查嘛！');
+          }
         }
       },
       changeAcademe () {
