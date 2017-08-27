@@ -36,11 +36,15 @@ function uploadFile(uptoken, key, localFile) {
         index++;
         console.log(chalk.green(file + '  success! \n')); 
         if(index == length) {
-          var publishPath = path.resolve(__dirname, config.htmlPath);
-          publishPath = path.join(publishPath, '../');
+          var publishPath = path.resolve(__dirname, config.htmlPath, '../');
+          var yfpublishPath = path.resolve(__dirname, config.yfhtmlPath, '../');
           shell.cp(path.resolve(__dirname, '../dist/index.html'), path.resolve(__dirname, config.htmlPath));
           shell.cd(publishPath);
           shell.exec('svn add index.html');
+
+          shell.cp(path.resolve(__dirname, '../dist/yf.html'), path.resolve(__dirname, config.yfhtmlPath));
+          shell.cd(yfpublishPath);
+          shell.exec('svn add yf.html');
           var out = shell.exec('svn commit -m "auto pub"');
           // console.log(out.stdout);
         }
