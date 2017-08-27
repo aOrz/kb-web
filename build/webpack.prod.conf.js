@@ -40,6 +40,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       filename: config.build.index,
       template: 'index.html',
       inject: true,
+      title: '迷你课表-课表查询',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -47,6 +48,23 @@ var webpackConfig = merge(baseWebpackConfig, {
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
+      chunks: ['app', "vendor", "manifest"],            
+      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+      chunksSortMode: 'dependency'
+    }),
+    new HtmlWebpackPlugin({
+      filename: path.resolve(__dirname, '../dist/yf.html'),
+      template: 'index.html',
+      inject: true,
+      title: '烟大课表查询-烟风',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+        // more options:
+        // https://github.com/kangax/html-minifier#options-quick-reference
+      },
+      chunks: ['yf', "vendor", "manifest"],      
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),

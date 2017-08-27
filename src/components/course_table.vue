@@ -15,7 +15,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="height:50px" v-for="i in 6">
+                    <tr style="height:70px" v-for="i in 6">
                         <td style="width:14px;">第
                             <br> {{i}}
                             <br>节
