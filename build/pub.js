@@ -41,7 +41,8 @@ function uploadFile(uptoken, key, localFile) {
           shell.cp(path.resolve(__dirname, '../dist/index.html'), path.resolve(__dirname, config.htmlPath));
           shell.cd(publishPath);
           shell.exec('svn add index.html');
-
+          var out = shell.exec('svn commit -m "auto pub"');
+          
           shell.cp(path.resolve(__dirname, '../dist/yf.html'), path.resolve(__dirname, config.yfhtmlPath));
           shell.cd(yfpublishPath);
           shell.exec('svn add yf.html');
