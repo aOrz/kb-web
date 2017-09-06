@@ -1,8 +1,10 @@
 <template>
   <div class="weui-tab">
-      <div></div>
+      <div class="icon"></div>
       <div>烟大课表查询-烟风</div>
-      <div></div>
+      <div class="icon">
+        <a href="http://a.app.qq.com/o/simple.jsp?pkgname=io.dcloud.H5291D2691">下载</a>
+      </div>
   </div>
 </template>
 <script>
@@ -42,9 +44,6 @@
   }
 </script>
 <style lang="scss" scoped>
-  div {
-    color: #000000;
-  }
   .weui-tab {
       background-color: #78ca38;
       display: flex;
@@ -52,6 +51,12 @@
       div {
           color: #ffffff;
           line-height: 50px;
+      }
+      .icon {
+        width: 52px;
+        a {
+          color: #ffffff;
+        }
       }
   }
 </style>
