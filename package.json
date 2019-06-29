@@ -11,6 +11,7 @@
     "pub1": "node build/pub.js"
   },
   "dependencies": {
+    "clipboard": "^1.7.1",
     "vue": "^2.1.10",
     "vue-resource": "^1.2.0",
     "vue-router": "^2.2.0",
@@ -41,10 +42,10 @@
     "json-loader": "^0.5.4",
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
+    "node-sass": "^4.5.3",
     "opn": "^4.0.2",
     "ora": "^1.1.0",
     "qiniu": "^6.0.0",
-    "node-sass": "^4.5.3",
     "sass-loader": "^5.0.1",
     "scs-sdk": "^0.1.4",
     "scss": "^0.2.4",

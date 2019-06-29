@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <tips></tips>
-    <search-course @changeschool="setSchool" school-name="school"></search-course>
+    <search-course @changeschool="setSchool" school-name="yd"></search-course>
     <!-- <search-query></search-query> -->
     <!-- <recommended v-for="links in schoolLinks" :links="links"></recommended> -->
     <!-- <recommended v-for="links in publicLinks" :links="links"></recommended> -->
@@ -22,7 +22,7 @@
   import VueResource from 'vue-resource';
 
   Vue.use(VueResource);
-  
+
   export default {
     name: 'search',
     data () {

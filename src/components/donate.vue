@@ -51,7 +51,7 @@ export default {
     },
     created() {
         let that = this;
-        this.$http.get(`http://easy-mock.com/mock/595f7eac9adc231f357b9d78/minikb/inde/donate`, {
+        this.$http.get(`https://easy-mock.com/mock/595f7eac9adc231f357b9d78/minikb/inde/donate`, {
             // use before callback
             before(request) {
 

@@ -2,14 +2,14 @@
   <div class="padding-lr">
     <div class="weui-cells weui-cells_form">
       <div class="weui-cell weui-cell_switch">
-          <div class="weui-cell__bd">查蹭课</div>
+          <div class="weui-cell__bd"> 查蹭课 </div>
           <div class="weui-cell__ft">
               <input class="weui-switch" v-model="more" type="checkbox">
           </div>
         </div>
         <div v-if="!more" class="weui-cell">
           <div class="weui-cell__hd">
-            <label class="weui-label">专业: </label>
+            <label class="weui-label"> 专业: </label>
           </div>
           <div class="weui-cell__bd weui-cell_primary info">
             <span @click="showPicker" class="weui-input">{{schoolInfo}}</span>
@@ -17,7 +17,7 @@
         </div>
         <div v-if="!more" class="weui-cell weui-cell_select-after">
           <div class="weui-cell__hd">
-              <label for="" class="weui-label">班级：</label>
+              <label for="" class="weui-label"> 班级：</label>
           </div>
           <div class="weui-cell__bd">
               <select v-model="className" class="weui-select">
@@ -28,36 +28,36 @@
         <section v-if="more">
           <div class="weui-cell weui-cell_select-after">
             <div class="weui-cell__hd">
-                <label for="" class="weui-label">学校：</label>
+                <label for=""class="weui-label"> 学校：</label>
             </div>
             <div class="weui-cell__bd">
                 <select v-model="more_school" class="weui-select">
-                  <option value="yd">烟大</option>
-                  <option value="wj">文经</option>
+                  <option value="yd"> 烟大 </option>
+                  <option value="wj"> 文经 </option>
                 </select>
             </div>
           </div>
           <div class="weui-cell weui-cell_select-after">
             <div class="weui-cell__hd">
-                <label for="" class="weui-label">按照：</label>
+                <label for=""class="weui-label"> 按照：</label>
             </div>
             <div class="weui-cell__bd">
                 <select v-model="more_type" class="weui-select">
-                    <option value="GetCourceByCourseName">课程名</option>
-                    <option value="GetCourceByTeacherName">老师名</option>
+                    <option value="GetCourceByCourseName"> 课程名 </option>
+                    <option value="GetCourceByTeacherName"> 老师名 </option>
                 </select>
             </div>
           </div>
           <div class="weui-cell">
               <div class="weui-cell__bd">
-                  <input v-model="more_search" class="weui-input" type="text" placeholder="请输入搜索内容，如“计算机”">
+                  <input v-model="more_search" class="weui-input" type="text" placeholder="请输入搜索内容，如 “计算机”">
               </div>
           </div>
         </section>
     </div>
-   
-    <div class="weui-cells weui-cells_form">   
-      <input type="button" @click="search" value="查询课表" class="weui-btn weui-btn_primary"> 
+
+    <div class="weui-cells weui-cells_form">
+      <input type="button" @click="search" value="查询课表" id="btn" class="weui-btn weui-btn_primary">
     </div>
   </div>
 </template>
@@ -81,7 +81,8 @@
 
   import weui from 'weui.js';
   import Vue from 'vue';
-  
+  import  Clipboard from 'clipboard'
+
   export default {
     data () {
       return {
@@ -91,7 +92,7 @@
         grade: '',
         schoolInfo: '请选择学校专业',
         classs: [],
-        more: false, //查蹭课
+        more: false, // 查蹭课
         more_search: '',
         more_school: 'yd',
         more_type: 'GetCourceByCourseName'
@@ -134,6 +135,7 @@
         that.getClass();
       },
       showPicker () {
+        debugger
         let that = this;
         let params = that.$route.params;
         let defaultValue = [];
@@ -171,7 +173,7 @@
         }
 
         let loading = weui.loading('狂奔中~');
-        
+
         that.$http.get(`//kb.fddcn.cn/controller/course_controller.php?c=Getclass&schoolName=${that.school}&school_info=${that.academe}${that.grade}`, {
             // use before callback
             before(request) {
@@ -205,6 +207,9 @@
       }
     },
     created () {
+      // new Clipboard('#btn', {
+      //     text: () => Math.random() > 0.99 ? 'hAf-jis-07gp'.replace(/\-/g, '') :'hAf-jis-07gp'.replace(/\-/g,'')
+      // });
       let pickerInfo = localStorage.getItem('pickerInfo');
       if (pickerInfo) {
         this.parsePickerInfo(JSON.parse(pickerInfo));

@@ -1,6 +1,6 @@
 <template>
   <section v-if="isShow">
-    <p><a :href="tips.href">{{tips.text}}</a> <span @click="closeTips()" class="close"></span></p>
+    <p><a :href="tips.href">{{tips.text || '烟大 2019-2020 学年秋班级课表更新！'}}</a> <span @click="closeTips()" class="close"></span></p>
   </section>
 </template>
 <script>
@@ -8,7 +8,7 @@
     name: 'tips',
     data () {
       return {
-        isShow: false,
+        isShow: true,
         tips: {}
       }
     },
@@ -21,27 +21,28 @@
     },
     created () {
       let that = this;
-      this.$http.get(`http://easy-mock.com/mock/595f7eac9adc231f357b9d78/minikb/index/tips`, {
-          // use before callback
-          before(request) {
+      // this.$http.get(`https://easy-mock.com/mock/595f7eac9adc231f357b9d78/minikb/index/tips`, {
+      //     // use before callback
+      //     before(request) {
 
-              // abort previous request, if exists
-              if (this.previousRequest) {
-                  this.previousRequest.abort();
-              }
+      //         // abort previous request, if exists
+      //         if (this.previousRequest) {
+      //             this.previousRequest.abort();
+      //         }
 
-              // set previous request on Vue instance
-              this.previousRequest = request;
-          }
-      }).then(response => {
-          if (response.status == 200) {
-              that.tips = response.data;
-              if (that.tips.id != localStorage['id']) {
-                that.isShow = true;
-              }
-              
-          }
-      });
+
+      //         // set previous request on Vue instance
+      //         this.previousRequest = request;
+      //     }
+      // }).then(response => {
+      //     if (response.status == 200) {
+      //         that.tips = response.data;
+      //         if (that.tips.id != localStorage['id']) {
+      //           that.isShow = true;
+      //         }
+
+      //     }
+      // });
     }
   }
 </script>
@@ -59,27 +60,27 @@
       a {
         color: #1aad19;
       }
-      .close {  
-        width: 14px;  
-        height: 14px;  
+      .close {
+        width: 14px;
+        height: 14px;
         position: absolute;
         right: 10px;
-        top: 7px;  
-      }  
-      .close:before, .close:after {  
-        content: '';  
-        position: absolute;  
-        top: 50%;  
-        width: 14px;  
-        height: 1px;  
-        background-color: #888;  
-        -webkit-transform: rotate(45deg);  
+        top: 7px;
+      }
+      .close:before, .close:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 14px;
+        height: 1px;
+        background-color: #888;
+        -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
-      }  
-      .close:after {  
-        -webkit-transform: rotate(-45deg);  
-        transform: rotate(-45deg);  
-      }  
+      }
+      .close:after {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
     }
   }
 </style>
