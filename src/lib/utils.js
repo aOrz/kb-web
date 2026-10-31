@@ -61,7 +61,7 @@ module.exports = {
     getAllMonth: function () {
         var thisYear = this.getThisYear();
         var month = [31, null, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        month[1] = this.isLeap(thisYear) ? 28 : 29;
+        month[1] = this.isLeap(thisYear) ? 29 : 28;
         return month;
     },
 
@@ -88,44 +88,21 @@ module.exports = {
         var year = date.getFullYear();
         var month = date.getMonth();
         var currentDays = new Date(year, month + 1, 0).getDate();
-        var firstDay = new Date(year, month, 1);
-        var firstCell = firstDay.getDay() === 0 ? 7 : firstDay.getDay(); // 从周日开;
-        var bottomCell = 35 - currentDays - firstCell;
-        var tof = isCompleteMonth || typeof (isCompleteMonth) === 'undefined'; // if `isCompleteMonth` is undefined, default the value is true.
-        if (tof) {
-            // 前一个月该显示多少天
-            var preMonth = [];
-            for (var p = firstCell; p > 0; p--) {
-                //  preMonth.push(new Date(year, month - 1, preDays - p + 1));
-                preMonth.push('');
-            }
-            // 本月
-            var currentMonth = [];
-            for (var c = 0; c < currentDays; c++) {
-                currentMonth.push(new Date(year, month, c + 1));
-                //  currentMonth.push('');
-            }
-            // 下一个月
-            var nextMonth = [];
-            for (var n = 0; n < bottomCell; n++) {
-                //  nextMonth.push(new Date(year, month + 1, n + 1));
-                nextMonth.push('');
-            }
-
-            preMonth = preMonth.concat(currentMonth, nextMonth);
-            return preMonth;
-        } else {
-            // 前一个月该显示多少天
-            var preMonthWithoutTof = [];
-            for (var i = firstCell; i > 0; i--) {
-                preMonthWithoutTof.push('');
-            }
-            var currentMonthWithoutTof = [];
-            for (var j = 0; j < currentDays; j++) {
-                currentMonthWithoutTof.push(new Date(year, month, c + 1));
-                //  currentMonth.push('');
+        // The header starts on Sunday; getDay() already uses Sunday = 0.
+        var firstCell = new Date(year, month, 1).getDay();
+        var cellCount = Math.ceil((firstCell + currentDays) / 7) * 7;
+        var today = this.getTodaySec();
+        var days = [];
+        for (var i = 0; i < cellCount; i++) {
+            var dayNumber = i - firstCell + 1;
+            if (dayNumber < 1 || dayNumber > currentDays) {
+                days.push('');
+            } else {
+                var day = new Date(year, month, dayNumber);
+                days.push(isCompleteMonth === false && +day < today ? '' : day);
             }
         }
+        return days;
     },
 
     getAllPanelData: function (maxDate, isCompleteMonth) {
@@ -152,10 +129,10 @@ module.exports = {
             // 按天计算
             var days = maxDate.replace('d', '') * 1;
             if (days) {
-                var todayMonth = new Date().getMonth();
-                var today = self.getTodayStartSec(new Date());
-                var dayToMonth = today + days * 24 * 3600 * 1000;
-                var monthNum = new Date(dayToMonth).getMonth() - todayMonth + 1;
+                var today = new Date();
+                var lastDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + days);
+                var monthNum = (lastDate.getFullYear() - today.getFullYear()) * 12 +
+                    lastDate.getMonth() - today.getMonth() + 1;
                 return self.getCalendarDataByMonth(monthNum, isCompleteMonth);
             } else {
                 self.logError('maxDate parameter error');
@@ -382,27 +359,15 @@ module.exports = {
 
     handleLastDay: function (maxDate) {
         var str = maxDate.toString();
-        var self = this;
         var thisDate = new Date();
         if (str.indexOf('m') > -1) {
             var interval = parseInt(str.replace('m', ''), 10);
-            // 按月
-            var thisMonth = thisDate.getMonth() + interval;
-            var endMonth = '';
-            if (thisMonth > 12) {
-                endMonth = thisMonth - 12;
-            } else {
-                endMonth = thisMonth;
-            }
-            var thisMonthDaysNum = self.getAllMonth()[thisMonth];
-            var year = thisDate.getFullYear();
-            var lastDay = new Date(year, endMonth - 1, thisMonthDaysNum);
-            return lastDay;
+            // Include the current month. Date handles year rollover and leap days.
+            return new Date(thisDate.getFullYear(), thisDate.getMonth() + interval, 0);
         } else if (str.indexOf('d') > -1) {
             // 按天
             var itv = parseInt(str.replace('d', ''), 10);
-            var thisDay = +new Date(thisDate.getFullYear(), thisDate.getMonth(), thisDate.getDate()) + itv * 24 * 3600 * 1000;
-            return new Date(thisDay);
+            return new Date(thisDate.getFullYear(), thisDate.getMonth(), thisDate.getDate() + itv);
         }
     },
 
