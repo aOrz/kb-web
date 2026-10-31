@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <div class="table-width">
-            <table v-show="course" class="table table-responsive table-bordered table-condensed table-striped">
+            <table v-if="course" class="table table-responsive table-bordered table-condensed table-striped">
                 <thead>
                     <tr>
                         <td style="width:14px;">@</td>
@@ -21,7 +21,7 @@
                             <br>节
                             <br>
                         </td>
-                        <td :class="getColor()" v-for="j in 7">{{course['s'+((i-1)*7+j)]}}</td>
+                        <td :class="getColor((i - 1) * 7 + j - 1)" v-for="j in 7">{{course['s'+((i-1)*7+j)]}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -29,74 +29,17 @@
     </div>
 </template>
 <script lang="babel">
-import Vue from 'vue';
-import VueResource from 'vue-resource';
 import weui from 'weui.js';
-
-Vue.use(VueResource);
+import createCourseLoader from '../lib/course-loader';
 
 export default {
-    data() {
-            return {
-                course: ''
-            }
-        },
-        created() {
-            // 组件创建完后获取数据，
-            // 此时 data 已经被 observed 了
-            this.fetchData()
-        },
-        methods: {
-            fetchData() {
-                let that = this;
-                let params = that.$route.params;
-                let loading = weui.loading('狂奔中~');
-
-                that.$http.get(`//kb.fddcn.cn/controller/course_controller.php?c=GetCourseByClassName&schoolName=${params.school}&collegeName=${params.academe}&classNum=${params.class_name}`, {
-                    // use before callback
-                    before(request) {
-
-                        // abort previous request, if exists
-                        if (this.previousRequest) {
-                            this.previousRequest.abort();
-                        }
-
-                        // set previous request on Vue instance
-                        this.previousRequest = request;
-                    }
-
-                }).then(response => {
-                    loading.hide();
-                    if (response.status != 200) {
-                        weui.alert('网络错误');
-                    } else {
-                        if (typeof response.body === 'object') {
-                            that.course = response.body[0];
-                        } else {
-                            weui.alert('找不到班级');
-                            window.location.href = '/#/'
-                        }
-                    }
-                }, response => {
-                    loading.hide();
-                    weui.alert('出错拉');
-                });
-            },
-            getColor() {
-                const setColor = [
-                    'active',
-                    'success',
-                    'warning',
-                    'danger ',
-                    '',
-                    'info',
-                    'c1',
-                    'c2',
-                    'c3'
-                ];
-                return setColor[Math.round(Math.random() * 8 + 1)];
-            }
+    mixins: [createCourseLoader(weui, true)],
+    methods: {
+        getColor(index) {
+            const colors = ['active', 'success', 'warning', 'danger', '', 'info', 'c1', 'c2', 'c3'];
+            return colors[index % colors.length];
         }
+    }
 }
 </script>
 <style type="text/css" scoped>
